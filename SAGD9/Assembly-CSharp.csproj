@@ -49,6 +49,7 @@
      <Compile Include="Assets\BrightnessController.cs" />
      <Compile Include="Assets\CharacterController2D.cs" />
      <Compile Include="Assets\Clicked.cs" />
+     <Compile Include="Assets\FollowPlayerScript.cs" />
      <Compile Include="Assets\StartButtonClick.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
