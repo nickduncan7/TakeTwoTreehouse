@@ -86,7 +86,7 @@ GameObject:
   - 64: {fileID: 108230713}
   - 23: {fileID: 108230712}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,10 +139,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 108230711}
   m_LocalRotation: {x: -3.09086232e-08, y: .707106829, z: -.707106829, w: -3.09086232e-08}
-  m_LocalPosition: {x: 0, y: 3.99616692e-05, z: 7.74326038}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children: []
-  m_Father: {fileID: 1073143119}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &525584136
 GameObject:
@@ -207,7 +207,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &525584139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +222,11 @@ MonoBehaviour:
   fadeSpeed: .800000012
   changeMargin: .0500000007
   alarmOn: 1
+  backgroundPlane: {fileID: 781671284}
+  knifeSharkLogo: {fileID: 1589722637}
+  sagdc9Logo: {fileID: 108230715}
+  highIntensity: 1
+  lowIntensity: .00200000009
 --- !u!1 &781671280
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +239,7 @@ GameObject:
   - 64: {fileID: 781671282}
   - 23: {fileID: 781671281}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,11 +292,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 781671280}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: -.707106829}
-  m_LocalPosition: {x: 0, y: 1.5282938e-05, z: 2.30241609}
+  m_LocalPosition: {x: 0, y: 1.5282938e-05, z: -1}
   m_LocalScale: {x: 90, y: 90, z: 90}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1073143114
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +378,76 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 108230715}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
+--- !u!1 &1589722636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1589722637}
+  - 33: {fileID: 1589722640}
+  - 64: {fileID: 1589722639}
+  - 23: {fileID: 1589722638}
+  m_Layer: 0
+  m_Name: TKS!
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1589722637
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589722636}
+  m_LocalRotation: {x: -3.09086232e-08, y: .707106829, z: -.707106829, w: -3.09086232e-08}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: .699999988, y: .699999988, z: .569999993}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+--- !u!23 &1589722638
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589722636}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 17dd42534661cc444806eeae3d5dc1d6, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &1589722639
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589722636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &1589722640
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589722636}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}

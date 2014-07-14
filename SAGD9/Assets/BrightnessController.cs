@@ -3,58 +3,103 @@ using System.Collections;
 
 public class BrightnessController : MonoBehaviour {
 
-	public float fadeSpeed = 2f;            // How fast the light fades between intensities.
-    public float changeMargin = 0.2f;       // The margin within which the target intensity is changed.
+	public float fadeSpeed = 2.4f;            // How fast the light fades between intensities.
+    public float changeMargin = 0.02f;       // The margin within which the target intensity is changed.
     public bool alarmOn;                    // Whether or not the alarm is on.
 
+    public Transform backgroundPlane;
+    public Transform knifeSharkLogo;
+    public Transform sagdc9Logo;
 
-    private bool windingDown;
+    private int count = 0;
+    public float highIntensity = 1f;        // The maximum intensity of the light whilst the alarm is on.
+    public float lowIntensity = 0.0002f;       // The minimum intensity of the light whilst the alarm is on.
     private float targetIntensity;          // The intensity that the light is aiming for currently.
-    
+    private bool windingDown = false;
     void Awake ()
     {
         // When the level starts we want the light to be "off".
         light.intensity = 0f;
         
-        // When the alarm starts for the first time, the light should aim to have the maximum intensity.
-        windingDown = false;
-        targetIntensity = 1;
+        targetIntensity = 1f;
     }
     
     
     void Update ()
     {
-        
         Debug.Log(light.intensity);
-        // If the light is on...
-        if (alarmOn && !windingDown)
+        if (count == 0)
         {
-            // ... Lerp the light's intensity towards the current target.
-            light.intensity = Mathf.Lerp(light.intensity, targetIntensity, fadeSpeed * Time.deltaTime);
+            // If the light is on...
+            if (alarmOn)
+            {
+                if (!windingDown)
+                {
+                    // ... Lerp the light's intensity towards the current target.
+                    light.intensity = Mathf.Lerp(light.intensity, highIntensity, fadeSpeed * Time.deltaTime);
 
-            // Check whether the target intensity needs changing and change it if so.
-            CheckTargetIntensity();
+                    if (Mathf.Abs(light.intensity) >= (highIntensity - changeMargin))
+                    {
+                        windingDown = true;
+                    }
+                }
+                else
+                {        
+                    light.intensity = Mathf.Lerp(light.intensity, lowIntensity, fadeSpeed * 1.8f * Time.deltaTime);
+                    if (light.intensity <= 0.008f)
+                    {
+                        windingDown = false;
+                        count++;
+                    }
+                }
+            }
         }
-        else
+        else if (count == 1)
         {
-            // Otherwise fade the light's intensity to zero.
-            light.intensity = Mathf.Lerp(light.intensity, 0f, fadeSpeed * 3f * Time.deltaTime);
-            if (light.intensity < 0.002f)
-                Application.LoadLevel("Main");
+            knifeSharkLogo.position = new Vector3(0, 0, -2);
+            sagdc9Logo.position = new Vector3(0, 0, 2);
+            // If the light is on...
+            if (alarmOn)
+            {
+                if (!windingDown)
+                {
+                    // ... Lerp the light's intensity towards the current target.
+                    light.intensity = Mathf.Lerp(light.intensity, highIntensity, fadeSpeed * Time.deltaTime);
+
+                    if (Mathf.Abs(light.intensity) >= (highIntensity - changeMargin))
+                    {
+                        windingDown = true;
+                    }
+                }
+                else
+                {
+                    light.intensity = Mathf.Lerp(light.intensity, lowIntensity, fadeSpeed * 1.8f * Time.deltaTime);
+                    if (light.intensity <= 0.008f)
+                    {
+                        windingDown = false;
+                        count++;
+                    }
+                }
+            }
+        }
+        else if (count == 2)
+        {
+            Application.LoadLevel("Main");
         }
     }
-    
     
     void CheckTargetIntensity ()
     {
         // If the difference between the target and current intensities is less than the change margin...
-        if(Mathf.Abs(targetIntensity - light.intensity) <= changeMargin)
+        if(Mathf.Abs(targetIntensity - light.intensity) < changeMargin)
         {
             // ... if the target intensity is high...
-            if (targetIntensity == 1)
+            if(targetIntensity == highIntensity)
                 // ... then set the target to low.
-                windingDown = true;
-                targetIntensity = 0;
+                targetIntensity = lowIntensity;
+            else
+                // Otherwise set the targer to high.
+                targetIntensity = highIntensity;
         }
     }
 }
