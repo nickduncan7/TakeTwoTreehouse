@@ -87,19 +87,4 @@ public class BrightnessController : MonoBehaviour {
             Application.LoadLevel("Main");
         }
     }
-    
-    void CheckTargetIntensity ()
-    {
-        // If the difference between the target and current intensities is less than the change margin...
-        if(Mathf.Abs(targetIntensity - light.intensity) < changeMargin)
-        {
-            // ... if the target intensity is high...
-            if(targetIntensity == highIntensity)
-                // ... then set the target to low.
-                targetIntensity = lowIntensity;
-            else
-                // Otherwise set the targer to high.
-                targetIntensity = highIntensity;
-        }
-    }
 }
