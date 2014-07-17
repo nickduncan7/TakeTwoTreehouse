@@ -216,17 +216,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 525584136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd5ecaf7b29ba554db4f243f4f843827, type: 3}
+  m_Script: {fileID: 11500000, guid: c0751b8d102c5984693e52e76a803c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: .800000012
-  changeMargin: .0500000007
+  fadeSpeed: 1.5
+  changeMargin: .00200000009
   alarmOn: 1
   backgroundPlane: {fileID: 781671284}
   knifeSharkLogo: {fileID: 1589722637}
   sagdc9Logo: {fileID: 108230715}
   highIntensity: 1
-  lowIntensity: .00200000009
+  lowIntensity: .000199999995
 --- !u!1 &781671280
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,27 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BrightnessController.cs" />
-     <Compile Include="Assets\CharacterController2D.cs" />
-     <Compile Include="Assets\Clicked.cs" />
-     <Compile Include="Assets\FollowPlayerScript.cs" />
-     <Compile Include="Assets\MoneyLabelScript.cs" />
-     <Compile Include="Assets\PreserveOnLoad.cs" />
-     <Compile Include="Assets\StartButtonClick.cs" />
-     <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
-     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
-     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
-     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
-     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
-     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
-     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
-     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{BB5DC64D-5DDE-F7CE-D64A-9ED2380CECB3}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{B3DD5718-D309-6F0A-F683-55DF0A0E83DE}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+     <Compile Include="Assets\Custom Assets\Scripts\BrightnessController.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\CharacterController2D.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\FollowPlayerScript.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\GameDataScript.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\LoadLevel.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\MoneyLabelScript.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\PreserveOnLoad.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\StartButtonClick.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\TextureFilterScript.cs" />
+     <None Include="Assets\Custom Assets\Levels\TestLevel.txt" />
+     <None Include="Assets\Custom Assets\Shaders\Texture Only.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
