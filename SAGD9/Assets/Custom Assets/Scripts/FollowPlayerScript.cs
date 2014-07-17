@@ -8,18 +8,19 @@ public class FollowPlayerScript : MonoBehaviour {
 	}
 	
     public Transform target;
-    public float smooth= 10.0f;
+    public float dampTime= 5f;
 
+    private Vector3 velocity = Vector3.zero;
 
-    void  LateUpdate (){
-        if (target)
-        {
-            var x = target.position.x;
-            var y = target.position.y;
-            transform.position = new Vector3(x, y, transform.position.z);
+    void FixedUpdate() {
+        if(target) {
+            var point = camera.WorldToViewportPoint(target.position);
+            var delta = target.position - camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
+            var destination = transform.position + delta;
+ 
+            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
         }
-
+}
 
 } 
-}
 
