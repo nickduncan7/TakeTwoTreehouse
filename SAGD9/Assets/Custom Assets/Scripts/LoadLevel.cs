@@ -9,7 +9,9 @@ public class LoadLevel : MonoBehaviour
 {
 
     public GameObject GrassPrefab;
-    public GameObject ConcretePrefab;
+    public GameObject WallPrefab;
+    public GameObject PassableTerrainPrefab;
+
     public Transform PlayerObject;
 
     private float scale;
@@ -19,7 +21,7 @@ public class LoadLevel : MonoBehaviour
 	void Start ()
 	{
         Debug.Log(GrassPrefab.transform.localScale.x);
-	    scale = (GrassPrefab.transform.localScale.x*8f)/100f;
+	    scale = (GrassPrefab.transform.localScale.x*16f)/100f;
 	    LoadLevelMethod(LevelToLoad);
 	}
 	
@@ -46,6 +48,7 @@ public class LoadLevel : MonoBehaviour
             xCoordinates.ForEach(x =>
             {
                 xIdx++;
+                var Position = new KeyValuePair<int, int>(xIdx, yIdx);
                 bool isSpawnPoint = false;
 
                 // Get rid of any excess whitespace in the string
@@ -55,22 +58,38 @@ public class LoadLevel : MonoBehaviour
                 // Check if the block is our "spawnpoint"
                 if (x.Contains("*"))
                 {
-                    isSpawnPoint = true;
+                    PlayerObject.position = new Vector3(scale * Position.Key, scale * Position.Value, 10);
                     x = x.Replace("*", "");
                 }
 
                 // Check if the block is empty
                 if (!x.Contains("-"))
                 {
-                    var Position = new KeyValuePair<int, int>(xIdx, yIdx);
+                    
 
                     if (x == ".")
                     {
-                        CreateGrassObject(Position, isSpawnPoint);
+                        CreateGrassObject(Position);
                     }
                     else if (x == "X")
                     {
-                        CreateConcreteObject(Position);
+                        CreateWallObject(Position, SpriteEnum.WallConcrete);
+                    }
+                    else if (x == "_")
+                    {
+                        CreatePassableObject(Position, SpriteEnum.CutGrass);
+                    }
+                    else if (x == "U")
+                    {
+                        CreateWallObject(Position, SpriteEnum.Asphalt);
+                    }
+                    else if (x == "O")
+                    {
+                        CreateWallObject(Position, SpriteEnum.WallWood);
+                    }
+                    else if (x == "L")
+                    {
+                        CreatePassableObject(Position, SpriteEnum.PassableConcrete);
                     }
                 }
             });
@@ -78,16 +97,22 @@ public class LoadLevel : MonoBehaviour
         });
     }
 
-    private void CreateConcreteObject(KeyValuePair<int, int> position)
+    private void CreateWallObject(KeyValuePair<int, int> position, SpriteEnum type)
     {
-        Instantiate(ConcretePrefab, new Vector3(scale * position.Key, scale * position.Value, 30), new Quaternion());
+        var newPrefab = Instantiate(WallPrefab, new Vector3(scale * position.Key, scale * position.Value, 30), new Quaternion()) as GameObject;
+        newPrefab.GetComponent<TileManager>().UpdateSprite(type);
     }
 
-    private void CreateGrassObject(KeyValuePair<int, int> position, bool isSpawnPoint)
+    private void CreatePassableObject(KeyValuePair<int, int> position, SpriteEnum type)
+    {
+        var newPrefab = Instantiate(PassableTerrainPrefab, new Vector3(scale * position.Key, scale * position.Value, 30), new Quaternion()) as GameObject;
+        newPrefab.GetComponent<TileManager>().UpdateSprite(type);
+    }
+
+    private void CreateGrassObject(KeyValuePair<int, int> position)
     {
         Instantiate(GrassPrefab, new Vector3(scale * position.Key, scale * position.Value, 30), new Quaternion());
-        if (isSpawnPoint)
-            PlayerObject.position = new Vector3(scale * position.Key, scale * position.Value, 10);
+          
     }
 
     private List<string> GetTextFromFile(string fileName)

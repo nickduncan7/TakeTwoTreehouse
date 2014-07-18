@@ -57,6 +57,8 @@
      <Compile Include="Assets\Custom Assets\Scripts\PreserveOnLoad.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\StartButtonClick.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\TextureFilterScript.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\TileManager.cs" />
+     <None Include="Assets\Custom Assets\Levels\House.txt" />
      <None Include="Assets\Custom Assets\Levels\TestLevel.txt" />
      <None Include="Assets\Custom Assets\Shaders\Texture Only.shader" />
   </ItemGroup>

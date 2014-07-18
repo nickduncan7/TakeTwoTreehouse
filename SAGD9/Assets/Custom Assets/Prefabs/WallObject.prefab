@@ -10,8 +10,9 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 61: {fileID: 6100000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: ConcreteObject
+  m_Name: WallObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,8 +25,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 13, y: 13, z: 0}
+  m_LocalPosition: {x: -2.54018593, y: .421681195, z: 5}
+  m_LocalScale: {x: 6.5, y: 6.5, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,6 +41,23 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .0799999982, y: .0799999982}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d868dc7468ffc27458d7cad7117bd9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Grass: {fileID: 21300000, guid: 563787cf9f340944cbf17cef529e4fd4, type: 3}
+  CutGrass: {fileID: 21300000, guid: fa1cc449bf8131244a505415d4ff9d40, type: 3}
+  PassableConcrete: {fileID: 21300000, guid: a42162fc93d78e749b91c7a81ad2c46f, type: 3}
+  WallConcrete: {fileID: 21300000, guid: 2a81d238cb2bcaa4b82b95ee28bfb6a9, type: 3}
+  WallWood: {fileID: 21300000, guid: 4add0b0d0c4764e4c9feb8fadbbc9ddc, type: 3}
+  Asphalt: {fileID: 21300000, guid: ca46ebb39ffbe814bbc6b362598c94f4, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
