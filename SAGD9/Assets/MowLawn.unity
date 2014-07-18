@@ -139,18 +139,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  damping: 500
 --- !u!50 &72339476
 Rigidbody2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 72339472}
-  m_Mass: 1
-  m_LinearDrag: .0299999993
-  m_AngularDrag: .0500000007
+  m_Mass: 5
+  m_LinearDrag: .0599999987
+  m_AngularDrag: .0799999982
   m_GravityScale: 0
-  m_FixedAngle: 0
+  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -274,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c073fbf004526cf43a4212738f3a0d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Money: 80
+  Money: 10
 --- !u!4 &1519044610
 Transform:
   m_ObjectHideFlags: 0
@@ -485,7 +484,7 @@ GameObject:
   - 4: {fileID: 1934755230}
   - 212: {fileID: 1934755229}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
