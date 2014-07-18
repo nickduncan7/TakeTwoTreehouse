@@ -22,7 +22,7 @@ public class GrassMowedScript : MonoBehaviour {
     {
         if (!isMowed && gameData != null)
         {
-            gameData.Money += 0.25f;
+            gameData.Money += 0.1f;
             GetComponent<SpriteRenderer>().sprite = SpriteToChangeTo;
             isMowed = true;
         }
