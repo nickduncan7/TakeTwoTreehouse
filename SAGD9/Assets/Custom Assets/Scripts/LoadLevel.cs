@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using System.Collections;
+using Debug = UnityEngine.Debug;
 
 public class LoadLevel : MonoBehaviour
 {
@@ -10,10 +12,15 @@ public class LoadLevel : MonoBehaviour
     public GameObject ConcretePrefab;
     public Transform PlayerObject;
 
+    private float scale;
+
     public string LevelToLoad = "TestLevel";
 	// Use this for initialization
-	void Start () {
-	   LoadLevelMethod(LevelToLoad);
+	void Start ()
+	{
+        Debug.Log(GrassPrefab.transform.localScale.x);
+	    scale = (GrassPrefab.transform.localScale.x*8f)/100f;
+	    LoadLevelMethod(LevelToLoad);
 	}
 	
 	// Update is called once per frame
@@ -25,7 +32,6 @@ public class LoadLevel : MonoBehaviour
     {
         // Get the lines from the level file        
         List<string> lines = GetTextFromFile(FileName);
-        Debug.Log(lines.Count);
 
         int yIdx = 0;
         int xIdx = 0;
@@ -74,14 +80,14 @@ public class LoadLevel : MonoBehaviour
 
     private void CreateConcreteObject(KeyValuePair<int, int> position)
     {
-        Instantiate(ConcretePrefab, new Vector3(0.64f*position.Key, 0.64f*position.Value, 30), new Quaternion());
+        Instantiate(ConcretePrefab, new Vector3(scale * position.Key, scale * position.Value, 30), new Quaternion());
     }
 
     private void CreateGrassObject(KeyValuePair<int, int> position, bool isSpawnPoint)
     {
-        Instantiate(GrassPrefab, new Vector3(0.64f*position.Key, 0.64f*position.Value, 30), new Quaternion());
+        Instantiate(GrassPrefab, new Vector3(scale * position.Key, scale * position.Value, 30), new Quaternion());
         if (isSpawnPoint)
-            PlayerObject.position = new Vector3(0.64f * position.Key, 0.64f * position.Value, 10);
+            PlayerObject.position = new Vector3(scale * position.Key, scale * position.Value, 10);
     }
 
     private List<string> GetTextFromFile(string fileName)

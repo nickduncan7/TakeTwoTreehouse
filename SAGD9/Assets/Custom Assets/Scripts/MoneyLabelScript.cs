@@ -12,7 +12,6 @@ public class MoneyLabelScript : MonoBehaviour
 	void Start ()
 	{
         gameDataScript = GameDataObjectHelper.GetGameData();
-        Debug.Log(gameDataScript.Money);
 	}
 	
 	// Update is called once per frame

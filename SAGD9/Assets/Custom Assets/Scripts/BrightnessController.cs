@@ -24,7 +24,6 @@ public class BrightnessController : MonoBehaviour {
     
     void Update ()
     {
-        Debug.Log(light.intensity);
         if (count == 0)
         {
             if (alarmOn)
