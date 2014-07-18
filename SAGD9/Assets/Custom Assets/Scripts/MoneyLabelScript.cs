@@ -7,13 +7,11 @@ using UnityEngine;
 public class MoneyLabelScript : MonoBehaviour
 {
     public Rect Position;
-    private GameObject gameDataGameObject;
     private GameDataScript gameDataScript;
 	// Use this for initialization
 	void Start ()
 	{
-	    gameDataGameObject = GameObject.Find("GameDataObject");
-	    gameDataScript = gameDataGameObject.GetComponent<GameDataScript>();
+        gameDataScript = GameDataObjectHelper.GetGameData();
         Debug.Log(gameDataScript.Money);
 	}
 	

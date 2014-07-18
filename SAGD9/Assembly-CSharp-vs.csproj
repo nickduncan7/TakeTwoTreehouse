@@ -50,6 +50,8 @@
      <Compile Include="Assets\Custom Assets\Scripts\CharacterController2D.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\FollowPlayerScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\GameDataScript.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\GrassMowedScript.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\Helpers\GameDataObjectHelper.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\MoneyLabelScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\PreserveOnLoad.cs" />
