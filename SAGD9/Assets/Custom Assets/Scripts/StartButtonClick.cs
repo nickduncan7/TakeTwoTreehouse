@@ -15,8 +15,6 @@ public class StartButtonClick : MonoBehaviour {
 
     void OnMouseDown()
     {
-        Debug.Log("Hi Dodgeball, the idiot sending you this screenshot clicked on the shitty looking sphere.");
-
-        Application.LoadLevel("MowLawn");
+        Application.LoadLevel("Sunday");
     }
 }

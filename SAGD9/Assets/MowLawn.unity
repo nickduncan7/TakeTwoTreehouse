@@ -604,6 +604,7 @@ GameObject:
   - 33: {fileID: 2048507690}
   - 64: {fileID: 2048507689}
   - 23: {fileID: 2048507688}
+  - 95: {fileID: 2048507692}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -663,3 +664,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!95 &2048507692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2048507687}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb0b0604556420041a8cba6b95ca941e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
