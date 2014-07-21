@@ -101,9 +101,9 @@ GUITexture:
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: -130.5
+    x: -152.199997
     y: -53.2999992
-    width: 433.5
+    width: 438.73999
     height: 123.800003
   m_LeftBorder: 0
   m_RightBorder: 0
@@ -116,11 +116,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 73815987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .5, y: .5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1123831594}
+  m_RootOrder: 0
 --- !u!1 &126735904
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +130,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 126735906}
   - 132: {fileID: 126735905}
+  - 114: {fileID: 126735907}
   m_Layer: 0
   m_Name: Sunday
   m_TagString: Untagged
@@ -151,7 +152,7 @@ GUIText:
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
-  m_Font: {fileID: 12800000, guid: 240c39639f4ae9c4ea69d22b46c5c917, type: 3}
+  m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
   m_Material: {fileID: 0}
   m_FontSize: 72
   m_FontStyle: 0
@@ -172,6 +173,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &126735907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 126735904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db6861c86712a44dbdbb5071ea77af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RedFlasher: 0
+--- !u!1 &297527700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 297527703}
+  - 114: {fileID: 297527702}
+  - 114: {fileID: 297527701}
+  m_Layer: 0
+  m_Name: GameDataObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &297527701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 297527700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86b05f238a661c4db46c182a83ebe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &297527702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 297527700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c073fbf004526cf43a4212738f3a0d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Money: 5
+  Week: 1
+  DayOfWeek: 0
+--- !u!4 &297527703
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 297527700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.37361765, y: .309208304, z: 2.10668945}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &673380883
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +275,7 @@ GUITexture:
   m_GameObject: {fileID: 673380883}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: a5838b482101df14281afdaf235927f9, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: .576470613}
+  m_Color: {r: 0, g: 0, b: 0, a: .509803951}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -230,7 +297,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1123831591
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +308,7 @@ GameObject:
   - 4: {fileID: 1123831594}
   - 132: {fileID: 1123831593}
   - 114: {fileID: 1123831592}
+  - 114: {fileID: 1123831595}
   m_Layer: 0
   m_Name: Redday
   m_TagString: Untagged
@@ -270,10 +338,10 @@ GUIText:
   m_Text: "\u2022SUNDAY"
   m_Anchor: 4
   m_Alignment: 0
-  m_PixelOffset: {x: -20.3299999, y: 0}
+  m_PixelOffset: {x: -15.0699997, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
-  m_Font: {fileID: 12800000, guid: 240c39639f4ae9c4ea69d22b46c5c917, type: 3}
+  m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
   m_Material: {fileID: 0}
   m_FontSize: 72
   m_FontStyle: 0
@@ -291,9 +359,85 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .5, y: .5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 73815989}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1123831595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1123831591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db6861c86712a44dbdbb5071ea77af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RedFlasher: 1
+--- !u!1 &1389412063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1389412065}
+  - 132: {fileID: 1389412064}
+  - 114: {fileID: 1389412066}
+  m_Layer: 0
+  m_Name: WeekCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!132 &1389412064
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389412063}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Week 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: -42.7700005}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 36
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &1389412065
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389412063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+--- !u!114 &1389412066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389412063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee23f473e7858e34ebff9bd5cd21cd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2006879418
 GameObject:
   m_ObjectHideFlags: 0

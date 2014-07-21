@@ -18,8 +18,6 @@ public class FadeInOut : MonoBehaviour {
 	void OnGUI ()
 	{
 	    timer += Time.deltaTime;
-        Debug.Log(timer);
-
         if (timer >= startWaitTime)
             FadeToClear();
         if (timer >= startWaitTime + timeActive)

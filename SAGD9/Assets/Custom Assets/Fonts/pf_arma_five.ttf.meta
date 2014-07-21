@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 240c39639f4ae9c4ea69d22b46c5c917
+guid: bfe6b91eefeffbb4286be1b4875066dc
 TrueTypeFontImporter:
   serializedVersion: 2
   fontSize: 16
@@ -10,5 +10,5 @@ TrueTypeFontImporter:
   use2xBehaviour: 0
   fontNames: []
   customCharacters: 
-  fontRenderingMode: 1
+  fontRenderingMode: 2
   userData: 

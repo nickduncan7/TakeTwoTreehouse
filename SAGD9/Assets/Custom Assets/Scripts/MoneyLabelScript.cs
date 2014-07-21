@@ -21,6 +21,6 @@ public class MoneyLabelScript : MonoBehaviour
 
     void OnGUI()
     {
-        this.guiText.text = gameDataScript.Money.ToString("C2");
+        this.guiText.text = gameDataScript.Money.ToString("C0");
     }
 }

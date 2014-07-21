@@ -111,6 +111,7 @@ public class LoadLevel : MonoBehaviour
 
     private void CreateGrassObject(KeyValuePair<int, int> position)
     {
+        MowerTrackerHelper.GetMowerDataScript().TotalGrass++;
         Instantiate(GrassPrefab, new Vector3(scale * position.Key, scale * position.Value, 30), new Quaternion());
           
     }
