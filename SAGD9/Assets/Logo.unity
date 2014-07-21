@@ -225,7 +225,7 @@ MonoBehaviour:
   backgroundPlane: {fileID: 781671284}
   knifeSharkLogo: {fileID: 1589722637}
   sagdc9Logo: {fileID: 108230715}
-  highIntensity: 1
+  highIntensity: .899999976
   lowIntensity: .000199999995
 --- !u!1 &781671280
 GameObject:

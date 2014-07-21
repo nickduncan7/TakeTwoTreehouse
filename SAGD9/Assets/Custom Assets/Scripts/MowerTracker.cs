@@ -31,8 +31,12 @@ public class MowerTracker : MonoBehaviour
 	        timer += Time.deltaTime;
 	        if (timer >= 5f)
 	        {
-	            GameDataObjectHelper.GetGameData().NextDay();
-                Application.LoadLevel("DayTitleCard");
+                GameObject.Find("Fader").GetComponent<TriggeredFader>().FadeToBlack();
+	            if (GameObject.Find("Fader").GetComponent<TriggeredFader>().BlackTransitionComplete())
+	            {
+	                GameDataObjectHelper.GetGameData().NextDay();
+	                Application.LoadLevel("DayTitleCard");
+	            }
 	        }
 	    }
 	}

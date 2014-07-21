@@ -99,7 +99,7 @@ GUIText:
   m_GameObject: {fileID: 126735904}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: WEDNESDAY
+  m_Text: MONDAY
   m_Anchor: 4
   m_Alignment: 0
   m_PixelOffset: {x: 1.60000002, y: 0}
@@ -193,6 +193,134 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!1 &523520137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 523520140}
+  - 132: {fileID: 523520139}
+  - 114: {fileID: 523520138}
+  m_Layer: 0
+  m_Name: WeekCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &523520138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523520137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee23f473e7858e34ebff9bd5cd21cd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!132 &523520139
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523520137}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Week 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_PixelOffset: {x: 2, y: -52.5200005}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 36
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4280887593
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &523520140
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523520137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+--- !u!1 &565712434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 565712437}
+  - 132: {fileID: 565712436}
+  - 114: {fileID: 565712435}
+  m_Layer: 0
+  m_Name: Sunday
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &565712435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565712434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db6861c86712a44dbdbb5071ea77af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Short: 0
+  RedFlasher: 0
+--- !u!132 &565712436
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565712434}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: MONDAY
+  m_Anchor: 4
+  m_Alignment: 0
+  m_PixelOffset: {x: 3.83999991, y: .75}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 72
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &565712437
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565712434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 1}
+  m_LocalScale: {x: 1.29999995, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &673380883
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +357,7 @@ GUITexture:
   m_GameObject: {fileID: 673380883}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: a5838b482101df14281afdaf235927f9, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: .501960814}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -252,6 +380,136 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &742552082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 742552085}
+  - 132: {fileID: 742552084}
+  - 114: {fileID: 742552083}
+  m_Layer: 0
+  m_Name: Sunday
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &742552083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742552082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db6861c86712a44dbdbb5071ea77af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Short: 0
+  RedFlasher: 0
+--- !u!132 &742552084
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742552082}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: MONDAY
+  m_Anchor: 4
+  m_Alignment: 0
+  m_PixelOffset: {x: -2.38000011, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 72
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &742552085
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742552082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 1}
+  m_LocalScale: {x: 1.29999995, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+--- !u!1 &1065793821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1065793824}
+  - 132: {fileID: 1065793823}
+  - 114: {fileID: 1065793822}
+  m_Layer: 0
+  m_Name: Sunday
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1065793822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065793821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db6861c86712a44dbdbb5071ea77af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Short: 0
+  RedFlasher: 0
+--- !u!132 &1065793823
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065793821}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: MONDAY
+  m_Anchor: 4
+  m_Alignment: 0
+  m_PixelOffset: {x: 4, y: -4}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 72
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4281413937
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &1065793824
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065793821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 2}
+  m_LocalScale: {x: 1.29999995, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &1123831591
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,10 +547,10 @@ GUIText:
   m_GameObject: {fileID: 1123831591}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: "\u2022WEDNESDAY"
+  m_Text: "\u2022MONDAY"
   m_Anchor: 4
   m_Alignment: 0
-  m_PixelOffset: {x: -12.3999996, y: 0}
+  m_PixelOffset: {x: -12.9099998, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
@@ -357,7 +615,7 @@ GUIText:
   m_Text: Week 1
   m_Anchor: 4
   m_Alignment: 0
-  m_PixelOffset: {x: 0, y: -42.7700005}
+  m_PixelOffset: {x: 0, y: -50.5200005}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}

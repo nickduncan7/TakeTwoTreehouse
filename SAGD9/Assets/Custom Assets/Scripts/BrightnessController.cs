@@ -15,6 +15,8 @@ public class BrightnessController : MonoBehaviour {
     public float highIntensity = 1f;        // The maximum intensity of the light whilst the alarm is on.
     public float lowIntensity = 0.0002f;       // The minimum intensity of the light whilst the alarm is on.
     private bool windingDown = false;
+
+    private float timer;
     void Awake ()
     {
         // When the level starts we want the light to be "off".
@@ -24,62 +26,66 @@ public class BrightnessController : MonoBehaviour {
     
     void Update ()
     {
-        if (count == 0)
+        timer += Time.deltaTime;
+        if (timer >= 2f)
         {
-            if (alarmOn)
+            if (count == 0)
             {
-                if (!windingDown)
+                if (alarmOn)
                 {
-                    // ... Lerp the light's intensity towards the current target.
-                    light.intensity = Mathf.Lerp(light.intensity, highIntensity, fadeSpeed * Time.deltaTime);
+                    if (!windingDown)
+                    {
+                        // ... Lerp the light's intensity towards the current target.
+                        light.intensity = Mathf.Lerp(light.intensity, highIntensity, fadeSpeed*Time.deltaTime);
 
-                    if (Mathf.Abs(light.intensity) >= (highIntensity - changeMargin))
-                    {
-                        windingDown = true;
+                        if (Mathf.Abs(light.intensity) >= (highIntensity - changeMargin))
+                        {
+                            windingDown = true;
+                        }
                     }
-                }
-                else
-                {        
-                    light.intensity = Mathf.Lerp(light.intensity, lowIntensity, fadeSpeed * 1.8f * Time.deltaTime);
-                    if (light.intensity <= 0.008f)
+                    else
                     {
-                        windingDown = false;
-                        count++;
+                        light.intensity = Mathf.Lerp(light.intensity, lowIntensity, fadeSpeed*1.8f*Time.deltaTime);
+                        if (light.intensity <= 0.008f)
+                        {
+                            windingDown = false;
+                            count++;
+                        }
                     }
                 }
             }
-        }
-        else if (count == 1)
-        {
-            knifeSharkLogo.position = new Vector3(0, 0, -2);
-            sagdc9Logo.position = new Vector3(0, 0, 2);
-            // .f the light is on...
-            if (alarmOn)
+            else if (count == 1)
             {
-                if (!windingDown)
+                knifeSharkLogo.position = new Vector3(0, 0, -2);
+                sagdc9Logo.position = new Vector3(0, 0, 2);
+                // .f the light is on...
+                if (alarmOn)
                 {
-                    // ... Lerp the light's intensity towards the current target.
-                    light.intensity = Mathf.Lerp(light.intensity, highIntensity, fadeSpeed * Time.deltaTime);
+                    if (!windingDown)
+                    {
+                        // ... Lerp the light's intensity towards the current target.
+                        light.intensity = Mathf.Lerp(light.intensity, highIntensity, fadeSpeed*Time.deltaTime);
 
-                    if (Mathf.Abs(light.intensity) >= (highIntensity - changeMargin))
-                    {
-                        windingDown = true;
+                        if (Mathf.Abs(light.intensity) >= (highIntensity - changeMargin))
+                        {
+                            windingDown = true;
+                        }
                     }
-                }
-                else
-                {
-                    light.intensity = Mathf.Lerp(light.intensity, lowIntensity, fadeSpeed * 1.8f * Time.deltaTime);
-                    if (light.intensity <= 0.008f)
+                    else
                     {
-                        windingDown = false;
-                        count++;
+                        light.intensity = Mathf.Lerp(light.intensity, lowIntensity, fadeSpeed*1.8f*Time.deltaTime);
+                        if (light.intensity <= 0.008f)
+                        {
+                            windingDown = false;
+                            count++;
+                        }
                     }
                 }
             }
-        }
-        else if (count == 2)
-        {
-            Application.LoadLevel("Main");
+            else if (count == 2)
+            {
+                Application.LoadLevel("Main");
+            }
         }
     }
 }
