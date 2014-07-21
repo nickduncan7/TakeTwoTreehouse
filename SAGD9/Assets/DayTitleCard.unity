@@ -74,53 +74,6 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
---- !u!1 &73815987
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 73815989}
-  - 131: {fileID: 73815988}
-  m_Layer: 0
-  m_Name: UnityWatermark-small
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!131 &73815988
-GUITexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 73815987}
-  m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: a5838b482101df14281afdaf235927f9, type: 3}
-  m_Color: {r: .5, g: .5, b: .5, a: .5}
-  m_PixelInset:
-    serializedVersion: 2
-    x: -152.199997
-    y: -53.2999992
-    width: 438.73999
-    height: 123.800003
-  m_LeftBorder: 0
-  m_RightBorder: 0
-  m_TopBorder: 0
-  m_BottomBorder: 0
---- !u!4 &73815989
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 73815987}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0, y: 0, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1123831594}
-  m_RootOrder: 0
 --- !u!1 &126735904
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,10 +99,10 @@ GUIText:
   m_GameObject: {fileID: 126735904}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: SUNDAY
+  m_Text: WEDNESDAY
   m_Anchor: 4
   m_Alignment: 0
-  m_PixelOffset: {x: 0, y: 0}
+  m_PixelOffset: {x: 1.60000002, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
@@ -184,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db6861c86712a44dbdbb5071ea77af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Short: 0
   RedFlasher: 0
 --- !u!1 &297527700
 GameObject:
@@ -275,7 +229,7 @@ GUITexture:
   m_GameObject: {fileID: 673380883}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: a5838b482101df14281afdaf235927f9, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: .509803951}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -335,10 +289,10 @@ GUIText:
   m_GameObject: {fileID: 1123831591}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: "\u2022SUNDAY"
+  m_Text: "\u2022WEDNESDAY"
   m_Anchor: 4
   m_Alignment: 0
-  m_PixelOffset: {x: -15.0699997, y: 0}
+  m_PixelOffset: {x: -12.3999996, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: af1e98242ddaee84d87c6d60f774fe8b, type: 3}
@@ -359,8 +313,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .5, y: .5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 73815989}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &1123831595
@@ -374,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db6861c86712a44dbdbb5071ea77af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Short: 0
   RedFlasher: 1
 --- !u!1 &1389412063
 GameObject:
