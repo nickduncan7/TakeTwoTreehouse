@@ -70,6 +70,7 @@
     <Compile Include="Assets\Custom Assets\Scripts\WeekCounterScript.cs" />
     <Compile Include="Assets\Custom Assets\Scripts\TriggeredFader.cs" />
     <Compile Include="Assets\Custom Assets\Scripts\FadeIn.cs" />
+    <Compile Include="Assets\Custom Assets\Scripts\StealMusicPlayer.cs" />
     <None Include="Assets\Custom Assets\Levels\House.txt" />
     <None Include="Assets\Custom Assets\Levels\TestLevel.txt" />
     <None Include="Assets\Custom Assets\Scripts\Shaders\Texture Only.shader" />

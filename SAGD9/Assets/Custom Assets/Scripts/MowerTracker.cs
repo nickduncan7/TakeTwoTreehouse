@@ -8,6 +8,7 @@ public class MowerTracker : MonoBehaviour
     public int GrassTilesMowed = 0;
     private float timer = 0f;
     private bool moneyDispensed = false;
+    public AudioClip FinishSound;
 
 
     // Use this for initialization
@@ -25,6 +26,7 @@ public class MowerTracker : MonoBehaviour
                 UIManagerHelper.GetUIManager().UpdateTitleText("Completed Chores");
                 UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You earned $10");
 	            GameDataObjectHelper.GetGameData().Money += 10;
+                audio.PlayOneShot(FinishSound);
 	            moneyDispensed = true;
 	        }
 

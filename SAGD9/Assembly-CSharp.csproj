@@ -64,6 +64,7 @@
      <Compile Include="Assets\Custom Assets\Scripts\MowerTracker.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\PreserveOnLoad.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\StartButtonClick.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\StealMusicPlayer.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\TextureFilterScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\TileManager.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\TriggeredFader.cs" />

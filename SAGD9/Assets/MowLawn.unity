@@ -575,6 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalGrass: 0
   GrassTilesMowed: 0
+  FinishSound: {fileID: 0}
 --- !u!1 &1187676290
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +797,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c09bf3fefb5ce9b4a9f9529845deee69, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: .858823538}
+  m_Color: {r: 1, g: 1, b: 1, a: .345098048}
 --- !u!1 &1651728921
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,6 +811,7 @@ GameObject:
   - 92: {fileID: 1651728924}
   - 81: {fileID: 1651728923}
   - 114: {fileID: 1651728922}
+  - 114: {fileID: 1651728928}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -895,6 +897,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1651728928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651728921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f935ffff5faaae48ba4bff92181ef2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1788713510
 GameObject:
   m_ObjectHideFlags: 0

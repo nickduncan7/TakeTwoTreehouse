@@ -9,6 +9,7 @@ public class GrassMowedScript : MonoBehaviour {
 	}
 
     public Sprite SpriteToChangeTo;
+    public AudioClip MowSound;
 
     private GameDataScript gameData;
     private bool isMowed = false;
@@ -24,6 +25,7 @@ public class GrassMowedScript : MonoBehaviour {
         {
             GetComponent<SpriteRenderer>().sprite = SpriteToChangeTo;
             isMowed = true;
+            audio.PlayOneShot(MowSound);
             MowerTrackerHelper.GetMowerDataScript().GrassTilesMowed++;
         }
     }
