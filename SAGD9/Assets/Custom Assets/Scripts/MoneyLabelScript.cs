@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class MoneyLabelScript : MonoBehaviour
 {
-    public Rect Position;
     private GameDataScript gameDataScript;
 	// Use this for initialization
 	void Start ()
@@ -21,6 +20,7 @@ public class MoneyLabelScript : MonoBehaviour
 
     void OnGUI()
     {
-        this.guiText.text = gameDataScript.Money.ToString("C0");
+        if (gameDataScript)
+            this.GetComponent<UILabel>().text = gameDataScript.Money.ToString("C0");
     }
 }

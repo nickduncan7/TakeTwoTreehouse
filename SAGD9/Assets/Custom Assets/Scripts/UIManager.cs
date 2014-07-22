@@ -16,18 +16,14 @@ public class UIManager : MonoBehaviour {
     public void UpdateTitleText(string NewText)
     {
         var title = GameObject.Find("TitleLabel");
-        var shadow = GameObject.Find("TitleLabelShadow");
 
-        title.guiText.text = NewText;
-        shadow.guiText.text = NewText;
+        title.GetComponent<UILabel>().text = NewText;
     }
 
     public void UpdateSubTitleText(string NewText)
     {
         var subtitle = GameObject.Find("SubTitleLabel");
-        var shadow = GameObject.Find("SubTitleLabelShadow");
 
-        subtitle.guiText.text = '-' + NewText + '-';
-        shadow.guiText.text = '-' + NewText + '-';
+        subtitle.GetComponent<UILabel>().text = '-' + NewText + '-';
     }
 }

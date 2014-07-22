@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 57f25ea6592d9054babdb8d4c53f9c96
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: FilmstripSide
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -16,7 +18,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: .25
     normalMapFilter: 0
-  isReadable: 1
+  isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
