@@ -49,6 +49,7 @@
      <Compile Include="Assets\Custom Assets\Scripts\BlinkingLight.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\BrightnessController.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\CharacterController2D.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\Classes\Script.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\DayNameController.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\DropShadowScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\FadeIn.cs" />
@@ -56,6 +57,7 @@
      <Compile Include="Assets\Custom Assets\Scripts\FollowPlayerScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\GameDataScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\GrassMowedScript.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\Helpers\FaderHelper.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Helpers\GameDataObjectHelper.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Helpers\MowerTrackerHelper.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Helpers\UIManagerHelper.cs" />
@@ -65,6 +67,9 @@
      <Compile Include="Assets\Custom Assets\Scripts\PreserveOnLoad.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\StartButtonClick.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\StealMusicPlayer.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\Sunday\ScriptManagerScript.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\Sunday\ScriptSelection.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\Sunday\SundayContinueScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\TextureFilterScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\TileManager.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\TriggeredFader.cs" />

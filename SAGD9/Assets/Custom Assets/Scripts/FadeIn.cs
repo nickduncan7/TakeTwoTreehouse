@@ -5,7 +5,7 @@ public class FadeIn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    GameObject.Find("Fader").GetComponent<TriggeredFader>().FadeToClear();
+	    FaderHelper.FadeToClear();
 	}
 	
 	// Update is called once per frame

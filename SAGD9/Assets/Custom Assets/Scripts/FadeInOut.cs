@@ -22,8 +22,13 @@ public class FadeInOut : MonoBehaviour {
             FadeToClear();
         if (timer >= startWaitTime + timeActive)
             FadeToBlack();
-        if (timer >= startWaitTime + timeActive + timeToEnd)
-            Application.LoadLevel("MowLawn");
+	    if (timer >= startWaitTime + timeActive + timeToEnd)
+	    {
+	        var gameDataScript = GameDataObjectHelper.GetGameData();
+
+            if (gameDataScript.GetCurrentDay() == Days.Sunday)
+	            Application.LoadLevel("Sunday");
+	    }
 
 	}
 
