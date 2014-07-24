@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Assets.Custom_Assets.Scripts.Classes;
 using UnityEngine;
 using System.Collections;
@@ -15,8 +16,23 @@ public class GameDataScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if (ConsecutiveDaysNotMowed >= 7)
+            GroundPlayer();
 	}
+
+    public int ConsecutiveDaysNotMowed = 0;
+
+    public bool IsGrounded;
+
+    public void GroundPlayer()
+    {
+        IsGrounded = true;
+        var actionManager = GameObject.Find("ActionManager");
+        if (actionManager)
+        {
+            actionManager.GetComponent<ActionManager>().DisallowOutsideTasks("You're grounded!");
+        }
+    }
 
     public Days GetCurrentDay()
     {
@@ -49,7 +65,11 @@ public class GameDataScript : MonoBehaviour {
                 Budget = 5,
                 Plot = 6,
                 Action = 4,
-                Effects = 3
+                Effects = 3,
+                Dilemma = (() =>
+                {
+                    
+                })
             },
             new Script
             {
@@ -79,6 +99,16 @@ public class GameDataScript : MonoBehaviour {
     }
 
     public Script SelectedScript;
+
+    public void UngroundPlayer()
+    {
+        IsGrounded = false;
+        var actionManager = GameObject.Find("ActionManager");
+        if (actionManager)
+        {
+            actionManager.GetComponent<ActionManager>().AllowOutsideTasks();
+        }
+    }
 }
 
 public enum Days

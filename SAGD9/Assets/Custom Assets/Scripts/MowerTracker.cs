@@ -23,9 +23,18 @@ public class MowerTracker : MonoBehaviour
 	    {
 	        if (!moneyDispensed)
 	        {
-                UIManagerHelper.GetUIManager().UpdateTitleText("Completed Chores");
-                UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You earned $10");
-	            GameDataObjectHelper.GetGameData().Money += 10;
+	            if (GameDataObjectHelper.GetGameData().IsGrounded)
+	            {
+                    UIManagerHelper.GetUIManager().UpdateTitleText("Completed Chores");
+                    UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You are no longer grounded.");
+	                GameDataObjectHelper.GetGameData().UngroundPlayer();
+	            }
+                else
+	            {
+	                UIManagerHelper.GetUIManager().UpdateTitleText("Completed Chores");
+	                UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You earned $10");
+	                GameDataObjectHelper.GetGameData().Money += 10;
+	            }
                 audio.PlayOneShot(FinishSound);
 	            moneyDispensed = true;
 	        }

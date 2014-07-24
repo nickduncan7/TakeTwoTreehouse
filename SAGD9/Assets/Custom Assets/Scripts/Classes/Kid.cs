@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Assets.Custom_Assets.Scripts.Classes
 {
-    public class GameAction
+    public class Kid
     {
         public String Name;
-        public String Description;
-        public String LevelToLoad;
-        public bool Allowed;
+        public String Benefit;
+        public short Acting;
+        public short Production;
     }
 }

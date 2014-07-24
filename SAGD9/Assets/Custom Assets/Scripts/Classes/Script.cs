@@ -12,5 +12,7 @@ namespace Assets.Custom_Assets.Scripts.Classes
         public int Effects;
         public int Action;
         public int Budget;
+
+        public Action Dilemma;
     }
 }

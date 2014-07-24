@@ -11,16 +11,22 @@ public class ActionsButton : MonoBehaviour
     private UI2DSprite selectionArrowSprite;
     private bool isSelected;
 
-    public Action AssociatedAction;
+    public GameAction AssociatedAction;
 
     // Use this for initialization
 	void Start ()
 	{
 	    controllerWidget = this.GetComponent<UIWidget>();
 	    if (!IsEnabled)
+	    {
 	        controllerWidget.alpha = 0.5f;
-        else
-            controllerWidget.alpha = 1f;
+	        AssociatedAction.Allowed = false;
+	    }
+	    else
+	    {
+	        controllerWidget.alpha = 1f;
+            AssociatedAction.Allowed = true;
+	    }
 	}
 
     public void Enable()
@@ -58,9 +64,7 @@ public class ActionsButton : MonoBehaviour
         SelectionArrow.GetComponent<UI2DSprite>().UpdateAnchors();
 
         GameObject.Find("ActionManager").GetComponent<ActionManager>().SelectedAction = this.AssociatedAction;
-
-        GameObject.Find("Action Name").GetComponent<UILabel>().text = AssociatedAction.Name;
-        GameObject.Find("Action Description").GetComponent<UILabel>().text = AssociatedAction.Description;
+        GameObject.Find("ActionManager").GetComponent<ActionManager>().UpdateTextLabels(AssociatedAction);
 
 
     }
@@ -73,4 +77,39 @@ public class ActionsButton : MonoBehaviour
             SelectMe();
         }
     }
+
+    void OnHover(bool hovering)
+    {
+        if (hovering)
+        {
+            var HoverArrow = GameObject.Find("HoverArrow");
+            HoverArrow.GetComponent<UI2DSprite>().color = new Color(1f, 1f, 1f, 0.5f);
+            HoverArrow.GetComponent<UI2DSprite>().SetAnchor(gameObject);
+            HoverArrow.GetComponent<UI2DSprite>().UpdateAnchors();
+            GameObject.Find("ActionManager").GetComponent<ActionManager>().UpdateTextLabels(AssociatedAction);
+        }
+        else
+        {
+            var HoverArrow = GameObject.Find("HoverArrow");
+            HoverArrow.GetComponent<UI2DSprite>().color = new Color(1f, 1f, 1f, 0f);
+
+            if (GameObject.Find("Shoot Scene Button").GetComponent<ActionsButton>().IsSelected())
+                GameObject.Find("ActionManager").GetComponent<ActionManager>().UpdateTextLabels(
+                    GameObject.Find("Shoot Scene Button").GetComponent<ActionsButton>().AssociatedAction
+                    );
+            if (GameObject.Find("Mow Lawn Button").GetComponent<ActionsButton>().IsSelected())
+                GameObject.Find("ActionManager").GetComponent<ActionManager>().UpdateTextLabels(
+                    GameObject.Find("Mow Lawn Button").GetComponent<ActionsButton>().AssociatedAction
+                    );
+            if (GameObject.Find("Post Process Button").GetComponent<ActionsButton>().IsSelected())
+                GameObject.Find("ActionManager").GetComponent<ActionManager>().UpdateTextLabels(
+                    GameObject.Find("Post Process Button").GetComponent<ActionsButton>().AssociatedAction
+                    );
+            if (GameObject.Find("Shoot Retake Button").GetComponent<ActionsButton>().IsSelected())
+                GameObject.Find("ScriptManager").GetComponent<ActionManager>().UpdateTextLabels(
+                    GameObject.Find("Shoot Retake Button").GetComponent<ActionsButton>().AssociatedAction
+                    );
+        }
+    }
+
 }

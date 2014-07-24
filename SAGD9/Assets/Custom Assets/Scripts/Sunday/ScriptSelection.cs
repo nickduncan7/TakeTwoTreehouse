@@ -1,4 +1,5 @@
-﻿using Assets.Custom_Assets.Scripts.Classes;
+﻿using System.Linq;
+using Assets.Custom_Assets.Scripts.Classes;
 using UnityEngine;
 using System.Collections;
 
@@ -43,5 +44,39 @@ public class ScriptSelection : MonoBehaviour {
     void OnPress(bool pressed)
     {
         if (pressed) SelectMe();
+    }
+
+    void OnHover(bool hovering)
+    {
+        if (hovering)
+        {
+            var HoverArrow = GameObject.Find("HoverArrow");
+            HoverArrow.GetComponent<UI2DSprite>().color = new Color(1f, 1f, 1f, 0.5f);
+            HoverArrow.GetComponent<UI2DSprite>().SetAnchor(gameObject);
+            HoverArrow.GetComponent<UI2DSprite>().UpdateAnchors();
+            GameObject.Find("ScriptManager").GetComponent<ScriptManagerScript>().UpdateTextLabels(AssociatedScript);
+        }
+        else
+        {
+            var HoverArrow = GameObject.Find("HoverArrow");
+            HoverArrow.GetComponent<UI2DSprite>().color = new Color(1f, 1f, 1f, 0f);
+
+            if (GameObject.Find("Script1").GetComponent<ScriptSelection>().IsSelected())
+                GameObject.Find("ScriptManager").GetComponent<ScriptManagerScript>().UpdateTextLabels(
+                    GameObject.Find("Script1").GetComponent<ScriptSelection>().AssociatedScript
+                    );
+            if (GameObject.Find("Script2").GetComponent<ScriptSelection>().IsSelected())
+                GameObject.Find("ScriptManager").GetComponent<ScriptManagerScript>().UpdateTextLabels(
+                    GameObject.Find("Script2").GetComponent<ScriptSelection>().AssociatedScript
+                    );
+            if (GameObject.Find("Script3").GetComponent<ScriptSelection>().IsSelected())
+                GameObject.Find("ScriptManager").GetComponent<ScriptManagerScript>().UpdateTextLabels(
+                    GameObject.Find("Script3").GetComponent<ScriptSelection>().AssociatedScript
+                    );
+            if (GameObject.Find("Brother").GetComponent<ScriptSelection>().IsSelected())
+                GameObject.Find("ScriptManager").GetComponent<ScriptManagerScript>().UpdateTextLabels(
+                    GameObject.Find("Brother").GetComponent<ScriptSelection>().AssociatedScript
+                    );
+        }
     }
 }
