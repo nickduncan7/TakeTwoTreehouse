@@ -27,8 +27,13 @@ public class GameDataScript : MonoBehaviour {
     {
         Debug.Log("Day incremented!");
         if (DayOfWeek == Days.Saturday)
+        {
+            DayOfWeek = Days.Sunday;
             Week++;
-        
+            Application.LoadLevel("DayTitleCard");
+            return;
+        }
+
         DayOfWeek++;
        
         Application.LoadLevel("DayTitleCard");
