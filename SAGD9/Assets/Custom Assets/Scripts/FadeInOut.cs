@@ -28,6 +28,10 @@ public class FadeInOut : MonoBehaviour {
 
             if (gameDataScript.GetCurrentDay() == Days.Sunday)
 	            Application.LoadLevel("Sunday");
+            else
+            {
+                Application.LoadLevel("DailyChoice");
+            }
 	    }
 
 	}

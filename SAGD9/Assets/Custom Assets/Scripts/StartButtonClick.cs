@@ -15,14 +15,14 @@ public class StartButtonClick : MonoBehaviour
 	void Update () {
 	    if (MoveOn)
 	    {
-            if (GameObject.Find("Fader").GetComponent<TriggeredFader>().BlackTransitionComplete())
+            if (GameObject.Find("fader").GetComponent<TriggeredFader>().BlackTransitionComplete())
                 Application.LoadLevel("DayTitleCard");
 	    }
 	}
 
     void OnMouseDown()
     {
-        GameObject.Find("Fader").GetComponent<TriggeredFader>().FadeToBlack();
+        GameObject.Find("fader").GetComponent<TriggeredFader>().FadeToBlack();
         MoveOn = true;
 
     }

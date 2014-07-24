@@ -19,7 +19,7 @@ public class SundayContinueScript : MonoBehaviour {
 	        }
             if (timer >= 7 && FaderHelper.BlackTransitionComplete())
             {
-                Application.LoadLevel("MowLawn");
+                Application.LoadLevel("DailyChoice");
             }
 	    }
 	}
