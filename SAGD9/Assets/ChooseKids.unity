@@ -399,7 +399,7 @@ GameObject:
   - 114: {fileID: 441325634}
   - 61: {fileID: 441325635}
   m_Layer: 5
-  m_Name: Script3
+  m_Name: Kid3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +464,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mSprite: {fileID: 21300000, guid: 5c7e8cfc8832695458aef928e3640465, type: 3}
+  mSprite: {fileID: 21300000, guid: 60bcb9fb46c60684698bc4634de8cd03, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -729,7 +729,7 @@ GameObject:
   - 114: {fileID: 935487006}
   - 61: {fileID: 935487005}
   m_Layer: 5
-  m_Name: Script1
+  m_Name: Kid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,7 +794,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mSprite: {fileID: 21300000, guid: 5c7e8cfc8832695458aef928e3640465, type: 3}
+  mSprite: {fileID: 21300000, guid: e34f7ba5df63f2545bbb5adab3f021a2, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -923,7 +923,7 @@ GameObject:
   - 114: {fileID: 974219835}
   - 61: {fileID: 974219834}
   m_Layer: 5
-  m_Name: Script3
+  m_Name: Brother
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,7 +950,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 344, y: 491}
+  m_Size: {x: 276, y: 394}
   m_Center: {x: 0, y: 0}
 --- !u!114 &974219835
 MonoBehaviour:
@@ -993,8 +993,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 344
-  mHeight: 491
+  mWidth: 276
+  mHeight: 394
   mDepth: 0
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mSprite: {fileID: 21300000, guid: 5c7e8cfc8832695458aef928e3640465, type: 3}
+  mSprite: {fileID: 21300000, guid: a7c5151ddf5e17e4581bf379401290f2, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -1482,7 +1482,7 @@ GameObject:
   - 114: {fileID: 1308912578}
   - 61: {fileID: 1308912579}
   m_Layer: 5
-  m_Name: Script2
+  m_Name: Kid2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1547,7 +1547,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mSprite: {fileID: 21300000, guid: 5c7e8cfc8832695458aef928e3640465, type: 3}
+  mSprite: {fileID: 21300000, guid: 82da8505f420a70409fe1ab87cc8bcaa, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -1653,7 +1653,7 @@ GameObject:
   - 114: {fileID: 1358505942}
   - 61: {fileID: 1358505941}
   m_Layer: 5
-  m_Name: Script2
+  m_Name: Kid5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1740,7 +1740,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mSprite: {fileID: 21300000, guid: 5c7e8cfc8832695458aef928e3640465, type: 3}
+  mSprite: {fileID: 21300000, guid: f6819eefc9d4e4a4d8a74620935fa34e, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -1900,7 +1900,7 @@ GameObject:
   - 114: {fileID: 1528754171}
   - 61: {fileID: 1528754170}
   m_Layer: 5
-  m_Name: Script1
+  m_Name: Kid4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1987,7 +1987,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mSprite: {fileID: 21300000, guid: 5c7e8cfc8832695458aef928e3640465, type: 3}
+  mSprite: {fileID: 21300000, guid: 508efdff0bd2823409efb6a2872093b6, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}

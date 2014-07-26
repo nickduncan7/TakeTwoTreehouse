@@ -52,6 +52,7 @@
      <Compile Include="Assets\Custom Assets\Scripts\BrightnessController.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\CharacterController2D.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Classes\Action.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\Classes\Kid.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Classes\Script.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\DailyChoiceButton.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\DayNameController.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Custom Assets\Scripts\Helpers\MowerTrackerHelper.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Helpers\UIManagerHelper.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\KidPicker\KidButton.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\KidPicker\KidManager.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\MoneyLabelScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\MowerTracker.cs" />
