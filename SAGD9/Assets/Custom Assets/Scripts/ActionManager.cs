@@ -24,7 +24,8 @@ public class ActionManager : MonoBehaviour {
         {
             Name = "Do Chores",
             Description = "Mow the lawn to earn you money, and please your parents. If you don't do this regularly, you might get grounded!",
-            LevelToLoad = "MowLawn"
+            LevelToLoad = "MowLawn",
+            Allowed = true
         };
         PostProcessButton.AssociatedAction = new GameAction
         {

@@ -9,7 +9,9 @@ namespace Assets.Custom_Assets.Scripts.Classes
     {
         public String Name;
         public String Benefit;
+        public String Title;
         public short Acting;
         public short Production;
+        public List<Days> Availability;
     }
 }

@@ -10,6 +10,8 @@ public class GameDataScript : MonoBehaviour {
     public int Week = 1;
     public Days DayOfWeek;
 
+    public List<Kid> Cast; 
+
 	// Use this for initialization
 	void Start () {
 	}

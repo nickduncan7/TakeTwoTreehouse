@@ -19,7 +19,8 @@ public class SundayContinueScript : MonoBehaviour {
 	        }
             if (timer >= 7 && FaderHelper.BlackTransitionComplete())
             {
-                Application.LoadLevel("DailyChoice");
+                GameDataObjectHelper.GetGameData().NextDay();
+                Application.LoadLevel("ChooseKids");
             }
 	    }
 	}
