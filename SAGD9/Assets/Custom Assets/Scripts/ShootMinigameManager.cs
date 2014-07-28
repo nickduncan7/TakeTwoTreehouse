@@ -181,6 +181,8 @@ public class ShootMinigameManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+	    Random.seed = (int) DateTime.Now.Ticks;
+
         Cast = new List<Kid>();
         var gameDataObject = GameDataObjectHelper.GetGameData();
 
@@ -335,20 +337,31 @@ public class ShootMinigameManager : MonoBehaviour
             gainedPlot += currentKid.Acting;
             gdo.SelectedScript.GainedPlot += CurrentKid.Acting;
 
-            var random = Random.Range(1,
-                (gdo.SelectedScript.GainedAction +
-                 gdo.SelectedScript.GainedEffects));
-
-            if (random <= (gdo.SelectedScript.GainedAction +
-                           gdo.SelectedScript.GainedEffects)/2)
+            if (gdo.SelectedScript.GainedAction > gdo.SelectedScript.GainedEffects)
             {
-                gainedAction += CurrentKid.Production;
-                gdo.SelectedScript.GainedAction += CurrentKid.Production;
+                if (Random.Range(1, 5) == 4)
+                {
+                    gainedAction += currentKid.Production;
+                    gdo.SelectedScript.GainedAction += currentKid.Production;
+                }
+                else
+                {
+                    gainedEffects += currentKid.Production;
+                    gdo.SelectedScript.GainedEffects += currentKid.Production;                    
+                }
             }
-            else
+            else if (gdo.SelectedScript.GainedAction == gdo.SelectedScript.GainedEffects)
             {
-                gainedEffects += CurrentKid.Production;
-                gdo.SelectedScript.GainedEffects += CurrentKid.Production;
+                if (Random.Range(1, 3) == 2)
+                {
+                    gainedAction += currentKid.Production;
+                    gdo.SelectedScript.GainedAction += currentKid.Production;
+                }
+                else
+                {
+                    gainedEffects += currentKid.Production;
+                    gdo.SelectedScript.GainedEffects += currentKid.Production;
+                }
             }
             pointsAwarded = true;
         }
@@ -366,20 +379,31 @@ public class ShootMinigameManager : MonoBehaviour
             gainedPlot += 1;
             gdo.SelectedScript.GainedPlot += 1;
 
-            var random = Random.Range(1,
-                (gdo.SelectedScript.GainedAction +
-                 gdo.SelectedScript.GainedEffects));
-
-            if (random <= (gdo.SelectedScript.GainedAction +
-                           gdo.SelectedScript.GainedEffects)/2)
+            if (gdo.SelectedScript.GainedAction > gdo.SelectedScript.GainedEffects)
             {
-                gainedAction += 1;
-                gdo.SelectedScript.GainedAction += 1;
+                if (Random.Range(1, 5) == 4)
+                {
+                    gainedAction += currentKid.Production;
+                    gdo.SelectedScript.GainedAction += 1;
+                }
+                else
+                {
+                    gainedEffects += currentKid.Production;
+                    gdo.SelectedScript.GainedEffects += 1;
+                }
             }
-            else
+            else if (gdo.SelectedScript.GainedAction == gdo.SelectedScript.GainedEffects)
             {
-                gainedEffects += 1;
-                gdo.SelectedScript.GainedEffects += 1;
+                if (Random.Range(1, 3) == 2)
+                {
+                    gainedAction += currentKid.Production;
+                    gdo.SelectedScript.GainedAction += 1;
+                }
+                else
+                {
+                    gainedEffects += currentKid.Production;
+                    gdo.SelectedScript.GainedEffects += 1;
+                }
             }
             pointsAwarded = true;
         }
