@@ -54,6 +54,7 @@
      <Compile Include="Assets\Custom Assets\Scripts\Classes\Action.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Classes\Kid.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Classes\Script.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\ClickSoundScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\DailyChoiceButton.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\DayNameController.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\DayTickerController.cs" />
@@ -75,6 +76,8 @@
      <Compile Include="Assets\Custom Assets\Scripts\MoneyLabelScript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\MowerTracker.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\PreserveOnLoad.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\ShootMinigameButton.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\ShootMinigameManager.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\StartButtonClick.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\StealMusicPlayer.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Sunday\ScriptManagerScript.cs" />

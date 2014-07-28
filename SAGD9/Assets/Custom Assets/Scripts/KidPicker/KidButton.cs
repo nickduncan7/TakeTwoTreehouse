@@ -42,8 +42,6 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
                 isCasted = true;
                 SelectMe();
             }
-
-            ;
         }
 
         public void Uncast()

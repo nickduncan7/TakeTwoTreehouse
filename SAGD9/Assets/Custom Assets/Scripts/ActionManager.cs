@@ -6,8 +6,48 @@ using System.Collections;
 
 public class ActionManager : MonoBehaviour {
 
+    public Sprite Arthur;
+    public Sprite Tomika;
+    public Sprite Jacques;
+    public Sprite Paula;
+    public Sprite Chris;
+    public Sprite Richy;
+    public Sprite Ali;
+    public Sprite Jill;
+    public Sprite Kevin;
+    public Sprite Ralph;
+    public Sprite Daniel;
+    public Sprite May;
+    public Sprite Brother;
+
 	// Use this for initialization
 	void Start () {
+        var gameDataObject = GameDataObjectHelper.GetGameData();
+
+        GameObject.Find("Cast1").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(gameDataObject.Cast[0]);
+        GameObject.Find("Cast1").transform.FindChild("Label").GetComponent<UILabel>().text = gameDataObject.Cast[0].Name;
+
+        if (!gameDataObject.Cast[0].Availability.Contains(gameDataObject.GetCurrentDay()))
+        {
+            GameObject.Find("Cast1").GetComponent<UI2DSprite>().alpha = 0.5f;
+        }
+
+        GameObject.Find("Cast2").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(gameDataObject.Cast[1]);
+        GameObject.Find("Cast2").transform.FindChild("Label").GetComponent<UILabel>().text = gameDataObject.Cast[1].Name;
+
+        if (!gameDataObject.Cast[1].Availability.Contains(gameDataObject.GetCurrentDay()))
+        {
+            GameObject.Find("Cast2").GetComponent<UI2DSprite>().alpha = 0.5f;
+        }
+
+        GameObject.Find("Cast3").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(gameDataObject.Cast[2]);
+        GameObject.Find("Cast3").transform.FindChild("Label").GetComponent<UILabel>().text = gameDataObject.Cast[2].Name;
+
+        if (!gameDataObject.Cast[2].Availability.Contains(gameDataObject.GetCurrentDay()))
+        {
+            GameObject.Find("Cast3").GetComponent<UI2DSprite>().alpha = 0.5f;
+        }
+
         var SelectionArrow = GameObject.Find("SelectionArrow");
 
         var SceneButton = GameObject.Find("Shoot Scene Button").GetComponent<ActionsButton>();
@@ -18,7 +58,9 @@ public class ActionManager : MonoBehaviour {
         SceneButton.AssociatedAction = new GameAction
 	    {
 	        Name = "Shoot a Scene",
-	        Description = "Shoots a scene for your movie."
+	        Description = "Shoots a scene for your movie.",
+            LevelToLoad = "ShootSceneMinigame",
+            Allowed = true
 	    };
         MowButton.AssociatedAction = new GameAction
         {
@@ -62,8 +104,47 @@ public class ActionManager : MonoBehaviour {
             ShootRetakeButton.SelectMe();
             return;
         }
+
 	    
+
+
+
+
 	}
+
+    public Sprite GetSpriteForKid(Kid kid)
+    {
+        switch (kid.Name)
+        {
+            case "Arthur":
+                return Arthur;
+            case "Tomika":
+                return Tomika;
+            case "Jacques":
+                return Jacques;
+            case "Paula":
+                return Paula;
+            case "Chris":
+                return Chris;
+            case "Richy":
+                return Richy;
+            case "Ali":
+                return Ali;
+            case "Jill":
+                return Jill;
+            case "Kevin":
+                return Kevin;
+            case "Ralph":
+                return Ralph;
+            case "Daniel":
+                return Daniel;
+            case "May":
+                return May;
+            case "Your Little Brother":
+                return Brother;
+        }
+        return null;
+    }
 
     public void DisallowOutsideTasks(string reason)
     {
@@ -104,6 +185,15 @@ public class ActionManager : MonoBehaviour {
 
     public void UpdateTextLabels(GameAction associatedAction)
     {
+        if (associatedAction.Name == "Shoot a Scene")
+        {
+            GameObject.Find("CastContainer").GetComponent<UIWidget>().alpha = 1f;
+        }
+        else
+        {
+            GameObject.Find("CastContainer").GetComponent<UIWidget>().alpha = 0f;
+        }
+
         GameObject.Find("Action Name").GetComponent<UILabel>().text = associatedAction.Name;
         if (associatedAction.Allowed)
             GameObject.Find("Action Description").GetComponent<UILabel>().text = associatedAction.Description;

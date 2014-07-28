@@ -20,12 +20,10 @@ public class ActionsButton : MonoBehaviour
 	    if (!IsEnabled)
 	    {
 	        controllerWidget.alpha = 0.5f;
-	        AssociatedAction.Allowed = false;
 	    }
 	    else
 	    {
 	        controllerWidget.alpha = 1f;
-            AssociatedAction.Allowed = true;
 	    }
 	}
 
