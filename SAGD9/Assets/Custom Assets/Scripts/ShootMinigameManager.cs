@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using Assets.Custom_Assets.Scripts.Classes;
 using UnityEngine;
 using System.Collections;
@@ -25,6 +27,8 @@ public class ShootMinigameManager : MonoBehaviour
 
     private int kidIdx = 0;
 
+    private bool pointsAwarded;
+
     private float countdownTimer = 3.2f;
     private float timer = 0f;
 
@@ -44,9 +48,9 @@ public class ShootMinigameManager : MonoBehaviour
 
     private bool success;
 
-    private short gainedAction;
-    private short gainedPlot;
-    private short gainedEffects;
+    private short gainedAction = 0;
+    private short gainedPlot = 0;
+    private short gainedEffects = 0;
 
     public Sprite GetSpriteForKid(Kid kid)
     {
@@ -103,7 +107,7 @@ public class ShootMinigameManager : MonoBehaviour
                 if (countdownTimer <= 0.05f)
                 {
                     countingDown = false;
-                    if (!success)
+                    if (!success && !AnswerSelected)
                     {
                         UpdateInstructions("You weren't fast enough, kid!");
                         RecordFailure(CurrentKid);
@@ -121,7 +125,7 @@ public class ShootMinigameManager : MonoBehaviour
                 {
                     fadeIn = false;
                     fadeComplete = false;
-                    var fadeout = TweenAlpha.Begin(GameObject.Find("Container"), 1, -0.1f);
+                    var fadeout = TweenAlpha.Begin(GameObject.Find("Container"), 1f, -0.1f);
                     fadeout.ignoreTimeScale = false;
                     fadeout.PlayForward();
 
@@ -142,8 +146,7 @@ public class ShootMinigameManager : MonoBehaviour
 
                     fadeOut = false;
                     fadeComplete = false;
-                    var fadein = TweenAlpha.Begin(GameObject.Find("Container"), 1, 1.1f);
-                    fadein.ignoreTimeScale = false;
+                    var fadein = TweenAlpha.Begin(GameObject.Find("Container"), 1f, 1.1f);
                     fadein.PlayForward();
 
                     if (GameObject.Find("Container").GetComponent<UIWidget>().alpha >= 1.01)
@@ -156,9 +159,18 @@ public class ShootMinigameManager : MonoBehaviour
             }
             else
             {
+                var fadein = TweenAlpha.Begin(GameObject.Find("GameStatsLabel"), 2f, 1.1f);
+                fadein.PlayForward();
+
                 GameObject.Find("Container").GetComponent<UIWidget>().alpha = 0;
-                if (FaderHelper.BlackTransitionComplete())
-                    Application.LoadLevel("DayTitleCard");
+
+                timer += Time.deltaTime;
+                if (timer >= 9f)
+                {
+                    FaderHelper.FadeToBlack();
+                    if (FaderHelper.BlackTransitionComplete())
+                        Application.LoadLevel("DayTitleCard");
+                }
             }
         }
     }
@@ -167,18 +179,18 @@ public class ShootMinigameManager : MonoBehaviour
 	void Start ()
 	{
         Cast = new List<Kid>();
-        //var gameDataObject = GameDataObjectHelper.GetGameData();
+        var gameDataObject = GameDataObjectHelper.GetGameData();
 
-        //Debug.Log(gameDataObject.Cast.Count);
+        Debug.Log(gameDataObject.Cast.Count);
 
-        //gameDataObject.Cast.ForEach(cast =>
-        //{
-        //    if (cast.Availability.Contains(gameDataObject.GetCurrentDay()))
-        //        Cast.Add(cast);
-        //});
+        gameDataObject.Cast.ForEach(cast =>
+        {
+            if (cast.Availability.Contains(gameDataObject.GetCurrentDay()))
+                Cast.Add(cast);
+        });
 
         if (Cast == null || !Cast.Any())
-            Cast = new List<Kid> { new Kid { Name = "Arthur" }, new Kid { Name = "Daniel" } };
+            Cast = new List<Kid> { new Kid { Name = "Arthur", Acting = 1, Production = 2}, new Kid { Name = "Daniel", Acting = 2, Production = 1} };
 
 	    CurrentKid = Cast[kidIdx];
 	    GameObject.Find("KidSprite").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(CurrentKid);
@@ -310,24 +322,75 @@ public class ShootMinigameManager : MonoBehaviour
 
     public void RecordSuccess(Kid currentKid)
     {
-        success = true;
-        UpdateInstructions("Congrats! You got it!");
+        if (!pointsAwarded)
+        {
+
+            var gdo = GameDataObjectHelper.GetGameData();
+            success = true;
+            UpdateInstructions("Congrats! You got it!");
+
+            gainedPlot += currentKid.Acting;
+            gdo.SelectedScript.GainedPlot += CurrentKid.Acting;
+
+            var random = Random.Range(1,
+                (gdo.SelectedScript.GainedAction +
+                 gdo.SelectedScript.GainedEffects));
+
+            if (random <= (gdo.SelectedScript.GainedAction +
+                           gdo.SelectedScript.GainedEffects)/2)
+            {
+                gainedAction += CurrentKid.Production;
+                gdo.SelectedScript.GainedAction += CurrentKid.Production;
+            }
+            else
+            {
+                gainedEffects += CurrentKid.Production;
+                gdo.SelectedScript.GainedEffects += CurrentKid.Production;
+            }
+            pointsAwarded = true;
+        }
+
     }
 
     public void RecordFailure(Kid currentKid)
     {
-        success = false;
-        UpdateInstructions("You picked the wrong one, dummy!");
+        if (!pointsAwarded)
+        {
+            var gdo = GameDataObjectHelper.GetGameData();
+            success = false;
+            UpdateInstructions("You picked the wrong one, dummy!");
 
+            gainedPlot += 1;
+            gdo.SelectedScript.GainedPlot += 1;
+
+            var random = Random.Range(1,
+                (gdo.SelectedScript.GainedAction +
+                 gdo.SelectedScript.GainedEffects));
+
+            if (random <= (gdo.SelectedScript.GainedAction +
+                           gdo.SelectedScript.GainedEffects)/2)
+            {
+                gainedAction += 1;
+                gdo.SelectedScript.GainedAction += 1;
+            }
+            else
+            {
+                gainedEffects += 1;
+                gdo.SelectedScript.GainedEffects += 1;
+            }
+            pointsAwarded = true;
+        }
     }
 
     public void NextKid()
     {
+
         fadeOut = true;
     }
 
     public void NextKidFinish()
     {
+        pointsAwarded = false;
         kidIdx++;
         if (kidIdx != Cast.Count)
         {
@@ -338,10 +401,41 @@ public class ShootMinigameManager : MonoBehaviour
         }
         else
         {
+            var gdo = GameDataObjectHelper.GetGameData();
+
+            var label = GameObject.Find("GameStatsLabel").GetComponent<UILabel>();
+                label.text = string.Empty;
+
+            var sbuilder = new StringBuilder();
+
+            sbuilder.AppendLine("Recording this scene contributed the following:");
+
+            if (gainedPlot != 0)
+                sbuilder.AppendLine(gainedPlot + " Plot point(s)");
+
+            if (gainedAction != 0)
+                sbuilder.AppendLine(gainedAction + " Action point(s)");
+
+            if (gainedEffects != 0)
+                sbuilder.AppendLine(gainedEffects + " Effects point(s)");
+
+            sbuilder.AppendLine();
+
+            sbuilder.AppendLine("Total:");
+            sbuilder.AppendLine("Plot: " + gdo.SelectedScript.GainedPlot + "/" + gdo.SelectedScript.Plot);
+            sbuilder.AppendLine("Action: " + gdo.SelectedScript.GainedAction + "/" + gdo.SelectedScript.Action);
+            sbuilder.AppendLine("Effects: " + gdo.SelectedScript.GainedEffects + "/" + gdo.SelectedScript.Effects);
+
+
+
+
+            label.text = sbuilder.ToString();
+            
+
+            timer = 0f;
             countdownTimer = 0f;
             GameObject.Find("Container").GetComponent<UIWidget>().alpha = 0;
             finished = true;
-            FaderHelper.FadeToBlack();
             
         }
     }

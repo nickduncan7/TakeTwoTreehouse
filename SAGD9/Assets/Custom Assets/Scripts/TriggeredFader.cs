@@ -7,7 +7,7 @@ public class TriggeredFader : MonoBehaviour
     private bool fadeToClear = false;
     private bool fadeToBlack = false;
 
-    private float fadeSpeed = 0.7f;
+    private float fadeSpeed = 0.9f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +25,7 @@ public class TriggeredFader : MonoBehaviour
 
     private void FadeClear()
     {
+  
         // Lerp the colour of the texture between itself and transparent.
         guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
     }
@@ -50,11 +51,11 @@ public class TriggeredFader : MonoBehaviour
 
     public bool ClearTransitionComplete()
     {
-        return guiTexture.color.a <= 0.03;
+        return guiTexture.color.a <= 0.05;
     }
 
     public bool BlackTransitionComplete()
     {
-        return guiTexture.color.a >= 0.97;
+        return guiTexture.color.a >= 0.95;
     }
 }
