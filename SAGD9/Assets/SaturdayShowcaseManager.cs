@@ -66,7 +66,7 @@ public class SaturdayShowcaseManager : MonoBehaviour {
 	    {
 	        moneyEarned += 0.50*gdo.Fans*multiplier;
 	        moneyEarned = Math.Ceiling(moneyEarned);
-	        labelBuilder.AppendLine(gdo.Fans + " fans give you " + moneyEarned.ToString("C0") + "dollars total in tips.");
+	        labelBuilder.AppendLine(gdo.Fans + " fans give you " + moneyEarned.ToString("C0") + " dollars total in tips.");
 	    labelBuilder.AppendLine();
 
 	    }
@@ -80,13 +80,12 @@ public class SaturdayShowcaseManager : MonoBehaviour {
 
 	    var oldMoneyEarned = moneyEarned;
 
-	    for (int i = 0; i < patrons; i++)
-	    {
-	        moneyEarned += 0.25*gdo.Fans*multiplier;
-	    }
+	    
+	    moneyEarned += 0.25*patrons*multiplier;
+	    
         moneyEarned = Math.Ceiling(moneyEarned);
 
-        labelBuilder.AppendLine(patrons + " patrons give you " + (moneyEarned - oldMoneyEarned).ToString("C0") + "dollars total in tips.");
+        labelBuilder.AppendLine(patrons + " patrons give you " + (moneyEarned - oldMoneyEarned).ToString("C0") + " dollars total in tips.");
 
 	    labelBuilder.AppendLine();
 
