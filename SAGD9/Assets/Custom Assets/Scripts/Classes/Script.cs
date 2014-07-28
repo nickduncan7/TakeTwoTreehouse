@@ -17,5 +17,6 @@ namespace Assets.Custom_Assets.Scripts.Classes
         public int GainedPlot;
 
         public Action Dilemma;
+        public string DilemmaDescription;
     }
 }

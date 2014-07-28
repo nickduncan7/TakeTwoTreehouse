@@ -169,7 +169,10 @@ public class ShootMinigameManager : MonoBehaviour
                 {
                     FaderHelper.FadeToBlack();
                     if (FaderHelper.BlackTransitionComplete())
+                    {
+                        GameDataObjectHelper.GetGameData().NextDay();
                         Application.LoadLevel("DayTitleCard");
+                    }
                 }
             }
         }

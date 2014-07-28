@@ -10,6 +10,8 @@ public class GameDataScript : MonoBehaviour {
     public int Week = 1;
     public Days DayOfWeek;
 
+    public int Fans = 0;
+
     public List<Kid> Cast; 
 
 	// Use this for initialization
@@ -29,11 +31,6 @@ public class GameDataScript : MonoBehaviour {
     public void GroundPlayer()
     {
         IsGrounded = true;
-        var actionManager = GameObject.Find("ActionManager");
-        if (actionManager)
-        {
-            actionManager.GetComponent<ActionManager>().DisallowOutsideTasks("You're grounded!");
-        }
     }
 
     public Days GetCurrentDay()
@@ -70,8 +67,10 @@ public class GameDataScript : MonoBehaviour {
                 Effects = 3,
                 Dilemma = (() =>
                 {
-                    
-                })
+                    GroundPlayer();
+                }),
+                DilemmaDescription = "Your parents read through some of the movie script, and are not very happy to read a few choice words. You have been [i]GROUNDED![/i]"
+                
             },
             new Script
             {
@@ -79,15 +78,28 @@ public class GameDataScript : MonoBehaviour {
                 Budget = 10,
                 Plot = 5,
                 Action = 5,
-                Effects = 5
+                Effects = 5,
+                Dilemma = (() =>
+                {
+                    if (Money < 5)
+                        Money = 0;
+                    else
+                        Money -= 5;
+                   
+                }),
+                DilemmaDescription = "A few cast members forgot socks today! You use some of your money to buy more."
             },
             new Script
             {
-                Name = "Untitled Movie",
+                Name = "Weakday",
                 Budget = 5,
                 Plot = 5,
                 Action = 4,
-                Effects = 5
+                Effects = 5,
+                DilemmaDescription = "The scene you had hoped to record today is extremely graphic, and your entire cast does not want to participate. You will not be able to record a scene today.",
+                Dilemma = () => Cast.ForEach(kid =>
+                    kid.Availability.Remove(Days.Wednesday)
+                    )
             },
             new Script
             {
@@ -105,11 +117,6 @@ public class GameDataScript : MonoBehaviour {
     public void UngroundPlayer()
     {
         IsGrounded = false;
-        var actionManager = GameObject.Find("ActionManager");
-        if (actionManager)
-        {
-            actionManager.GetComponent<ActionManager>().AllowOutsideTasks();
-        }
     }
 }
 

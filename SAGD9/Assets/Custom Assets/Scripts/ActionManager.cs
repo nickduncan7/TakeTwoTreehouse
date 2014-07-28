@@ -24,6 +24,8 @@ public class ActionManager : MonoBehaviour {
 	void Start () {
         var gameDataObject = GameDataObjectHelper.GetGameData();
 
+	    GameObject.Find("SubTitleLabel").GetComponent<UILabel>().text = "-" + gameDataObject.SelectedScript.Name + "-";
+
         GameObject.Find("Cast1").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(gameDataObject.Cast[0]);
         GameObject.Find("Cast1").transform.FindChild("Label").GetComponent<UILabel>().text = gameDataObject.Cast[0].Name;
 
@@ -79,6 +81,21 @@ public class ActionManager : MonoBehaviour {
             Name = "Shoot a Retake",
             Description = "Do a Retake on a scene to max out the scene's benefits towards the movie."
         };
+
+	    if (gameDataObject.IsGrounded)
+	    {
+            DisallowOutsideTasks("You're grounded!");
+	    }
+
+	    else
+	    {
+	        AllowOutsideTasks();
+	    }
+
+        if (!gameDataObject.Cast[0].Availability.Contains(gameDataObject.GetCurrentDay())
+            && !gameDataObject.Cast[1].Availability.Contains(gameDataObject.GetCurrentDay())
+            && !gameDataObject.Cast[2].Availability.Contains(gameDataObject.GetCurrentDay()))
+            SceneButton.Disable();
 
 	    if (SceneButton.IsEnabled)
 	    {
@@ -168,8 +185,8 @@ public class ActionManager : MonoBehaviour {
         SceneButton.Enable();
         SceneButton.AssociatedAction.Allowed = true;
 
-        ShootRetakeButton.Enable();
-        ShootRetakeButton.AssociatedAction.Allowed = true;
+        //ShootRetakeButton.Enable();
+        //ShootRetakeButton.AssociatedAction.Allowed = true;
 
         actionDisabledReason = String.Empty;
     }

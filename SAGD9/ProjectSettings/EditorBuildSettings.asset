@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/ChooseKids.unity
   - enabled: 1
     path: Assets/ShootSceneMinigame.unity
+  - enabled: 1
+    path: Assets/WednesdayDilemma.unity

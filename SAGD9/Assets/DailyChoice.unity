@@ -777,7 +777,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 4689
+  mWidth: 4310
   mHeight: 296
   mDepth: 7
   autoResizeBoxCollider: 0
@@ -1039,7 +1039,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 4449
+  mWidth: 4070
   mHeight: 126
   mDepth: 8
   autoResizeBoxCollider: 0
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 5998
+  mWidth: 5619
   mHeight: 317
   mDepth: 0
   autoResizeBoxCollider: 0
@@ -2316,7 +2316,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 4689
+  mWidth: 4310
   mHeight: 1638
   mDepth: 7
   autoResizeBoxCollider: 0
@@ -2397,7 +2397,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 5695
+  mWidth: 5316
   mHeight: 542
   mDepth: 10
   autoResizeBoxCollider: 0
@@ -2462,7 +2462,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 5998
+  mWidth: 5619
   mHeight: 200
   mDepth: 5
   autoResizeBoxCollider: 0
@@ -2699,7 +2699,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 5998
+  mWidth: 5619
   mHeight: 200
   mDepth: 5
   autoResizeBoxCollider: 0
@@ -3010,7 +3010,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1076484597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2354.5, y: -133.000061, z: 0}
+  m_LocalPosition: {x: -2165.00024, y: -133.000061, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 148017162}
@@ -3196,7 +3196,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 4449
+  mWidth: 4070
   mHeight: 1152
   mDepth: 16
   autoResizeBoxCollider: 0
@@ -3266,7 +3266,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 5735
+  mWidth: 5356
   mHeight: 2852
   mDepth: 6
   autoResizeBoxCollider: 0
@@ -3997,7 +3997,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1578504987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2832, y: .5, z: 0}
+  m_LocalPosition: {x: -2642.5, y: .5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 210553269}
@@ -4147,7 +4147,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1599781510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2542.5, y: -1268, z: 0}
+  m_LocalPosition: {x: 2353.00024, y: -1268, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1427016807}
@@ -4288,7 +4288,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 5695
+  mWidth: 5316
   mHeight: 542
   mDepth: 7
   autoResizeBoxCollider: 0
@@ -4344,7 +4344,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1645721842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2922.2832, y: -174.012207, z: 0}
+  m_LocalPosition: {x: -2733.12646, y: -174.012207, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2033939079}
@@ -4424,7 +4424,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1652839610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2944.2832, y: -174.012207, z: 0}
+  m_LocalPosition: {x: 2755.12646, y: -174.012207, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2033939079}
@@ -5059,7 +5059,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: .764705896, g: .764705896, b: .764705896, a: 1}
   mPivot: 4
-  mWidth: 5998
+  mWidth: 5619
   mHeight: 348
   mDepth: -1
   autoResizeBoxCollider: 0
@@ -5118,7 +5118,7 @@ GUITexture:
   m_GameObject: {fileID: 1971425033}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: a5838b482101df14281afdaf235927f9, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: .545098066}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -5767,7 +5767,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2135623727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2788.2832, y: 1, z: 0}
+  m_LocalPosition: {x: 2599.12646, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2050096756}
@@ -5898,7 +5898,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 4589
+  mWidth: 4210
   mHeight: 296
   mDepth: 8
   autoResizeBoxCollider: 0
