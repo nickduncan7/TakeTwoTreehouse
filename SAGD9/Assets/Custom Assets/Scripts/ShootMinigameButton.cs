@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ShootMinigameButton : MonoBehaviour
 {
-    private bool clicked;
+    public bool clicked;
 
 	// Use this for initialization
 	void Start ()
@@ -44,11 +44,14 @@ public class ShootMinigameButton : MonoBehaviour
             manager.AnswerSelected = true;
 
             if (transform.FindChild("Label").GetComponent<UILabel>().text == manager.CurrentWord)
+            {
                 transform.FindChild("Background").GetComponent<UI2DSprite>().color = new Color(0, 1, 0, 1);
+                manager.RecordSuccess(manager.CurrentKid);
+            }
             else
             {
                 {
-                    
+                    manager.RecordFailure(manager.CurrentKid);
                     transform.FindChild("Background").GetComponent<UI2DSprite>().color = new Color(1, 0, 0, 1);
                 }
             }
