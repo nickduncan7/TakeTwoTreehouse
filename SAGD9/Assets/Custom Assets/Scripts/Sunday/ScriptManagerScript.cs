@@ -11,7 +11,7 @@ public class ScriptManagerScript : MonoBehaviour
 	void Start ()
 	{
         
-	    WeekScripts = GameDataObjectHelper.GetGameData().Week1Scripts();
+	    WeekScripts = GameDataObjectHelper.GetGameData().GetScripts();
         GameObject.Find("Script1").GetComponent<ScriptSelection>().AssociatedScript = WeekScripts[0];
         GameObject.Find("Script2").GetComponent<ScriptSelection>().AssociatedScript = WeekScripts[1];
         GameObject.Find("Script3").GetComponent<ScriptSelection>().AssociatedScript = WeekScripts[2];

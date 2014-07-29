@@ -25,3 +25,5 @@ EditorBuildSettings:
     path: Assets/WednesdayDilemma.unity
   - enabled: 1
     path: Assets/Saturday.unity
+  - enabled: 1
+    path: Assets/GameOver.unity

@@ -26,13 +26,29 @@ public class SundayContinueScript : MonoBehaviour {
 	}
 
 
+    public bool Enabled;
+
+    public void Enable()
+    {
+        Enabled = true;
+        GetComponent<UI2DSprite>().sprite2D = EnabledSprite;
+    }
+
+    public void Disable()
+    {
+        Enabled = false;
+        GetComponent<UI2DSprite>().sprite2D = DisabledSprite;
+    }
+
     private float timer;
     private bool transitionStarted = false;
     private bool activated = false;
+    public Sprite EnabledSprite;
+    public Sprite DisabledSprite;
 
     void OnPress(bool pressed)
     {
-        if (pressed)
+        if (pressed && Enabled)
         {
             if (!activated)
             {

@@ -35,7 +35,7 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
 
             for (int i = 0; i <= 5; ++i)
             {
-                var item = Random.Range(0, allKids.Count - 1);
+                var item = Random.Range(0, allKids.Count);
                 kids.Add(allKids[item]);
                 allKids.Remove(allKids[item]);
             }
@@ -164,7 +164,7 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
                     Title = "The Popular Kid",
                     Acting = 1,
                     Production = 1,
-                    Benefit = "Your next 2 movies earn 25% more new patrons.",
+                    Benefit = "Paula brings 3 kids to the premiere, 2 of which automatically become fans.",
                     Availability = new List<Days>{Days.Wednesday, Days.Thursday, Days.Friday}
                 },
                 new Kid
@@ -209,7 +209,7 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
                     Title = "The Funny Kid",
                     Acting = 2,
                     Production = 2,
-                    Benefit = "Every patron who saw a movie with Kevin in it will return to see all future movies with Kevin in them.",
+                    Benefit = "Every patron who saw a movie with Kevin in it becomes a fan.",
                     Availability = new List<Days>{Days.Monday, Days.Wednesday, Days.Thursday}
                 },
                 new Kid
@@ -218,7 +218,7 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
                     Title = "The Kid of 1000 Voices",
                     Acting = 3,
                     Production = 0,
-                    Benefit = "Ralph doesn't need to do retakes.",
+                    Benefit = "Ralph doesn't need to do retakes. [i]NOT IMPLEMENTED![/i]",
                     Availability = new List<Days>{Days.Tuesday, Days.Thursday, Days.Friday}
                 },
                 new Kid
@@ -227,7 +227,7 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
                     Title = "The Kid with the Good Camera",
                     Acting = 1,
                     Production = 2,
-                    Benefit = "Each day spent on post-production adds +1 to both Action and Effects instead of at random.",
+                    Benefit = "Each day spent on post-production adds +1 to both Action and Effects instead of at random. [i]NOT IMPLEMENTED![/i]",
                     Availability = new List<Days>{Days.Monday, Days.Wednesday, Days.Friday}
                 },
                 new Kid
@@ -236,7 +236,7 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
                     Title = "The Girl who Can Sing",
                     Acting = 2,
                     Production = 1,
-                    Benefit = "May's soothing singing lowers the ego of all the kids in the movie by 2. (ego not yet implemented)",
+                    Benefit = "May's soothing singing lowers the ego of all the kids in the movie by 2. [i]EGO NOT IMPLEMENTED![/i]",
                     Availability = new List<Days>{Days.Monday, Days.Tuesday, Days.Friday}
                 }
             };

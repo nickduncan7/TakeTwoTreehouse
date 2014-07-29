@@ -31,9 +31,18 @@ public class MowerTracker : MonoBehaviour
 	            }
                 else
 	            {
-	                UIManagerHelper.GetUIManager().UpdateTitleText("Completed Chores");
-	                UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You earned $10");
-	                GameDataObjectHelper.GetGameData().Money += 10;
+                    UIManagerHelper.GetUIManager().UpdateTitleText("Completed Chores");
+
+	                if (GameDataObjectHelper.GetGameData().CastContains("Your Little Brother"))
+	                {
+                        UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You earned $15");
+	                    GameDataObjectHelper.GetGameData().Money += 15;
+	                }
+	                else
+	                {
+                        UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You earned $10");
+	                    GameDataObjectHelper.GetGameData().Money += 10;
+	                }
 	            }
                 audio.PlayOneShot(FinishSound);
 	            moneyDispensed = true;

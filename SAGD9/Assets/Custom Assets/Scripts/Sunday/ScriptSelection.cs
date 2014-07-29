@@ -40,6 +40,16 @@ public class ScriptSelection : MonoBehaviour {
         SelectionArrow.GetComponent<UI2DSprite>().UpdateAnchors();
         GameObject.Find("ScriptManager").GetComponent<ScriptManagerScript>().UpdateTextLabels(AssociatedScript);
         GameObject.Find("ScriptManager").GetComponent<ScriptManagerScript>().CurrentlySelectedScript = AssociatedScript;
+
+        if (AssociatedScript.Budget > GameDataObjectHelper.GetGameData().Money)
+        {
+            GameObject.Find("ContinueButton").GetComponent<SundayContinueScript>().Disable();
+        }
+        else
+        {
+            GameObject.Find("ContinueButton").GetComponent<SundayContinueScript>().Enable();
+        }
+
     }
     void OnPress(bool pressed)
     {
@@ -55,6 +65,14 @@ public class ScriptSelection : MonoBehaviour {
             HoverArrow.GetComponent<UI2DSprite>().SetAnchor(gameObject);
             HoverArrow.GetComponent<UI2DSprite>().UpdateAnchors();
             GameObject.Find("ScriptManager").GetComponent<ScriptManagerScript>().UpdateTextLabels(AssociatedScript);
+            if (AssociatedScript.Budget > GameDataObjectHelper.GetGameData().Money)
+            {
+                GameObject.Find("ContinueButton").GetComponent<SundayContinueScript>().Disable();
+            }
+            else
+            {
+                GameObject.Find("ContinueButton").GetComponent<SundayContinueScript>().Enable();
+            }
         }
         else
         {

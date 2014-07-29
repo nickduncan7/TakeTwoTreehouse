@@ -117,16 +117,10 @@ public class ActionManager : MonoBehaviour {
         }
 
 	    if (ShootRetakeButton.IsEnabled)
-        {
-            ShootRetakeButton.SelectMe();
-            return;
-        }
-
-	    
-
-
-
-
+	    {
+	        ShootRetakeButton.SelectMe();
+	        return;
+	    }
 	}
 
     public Sprite GetSpriteForKid(Kid kid)
@@ -220,6 +214,6 @@ public class ActionManager : MonoBehaviour {
                 "You are currently [i]not allowed[/i] to do this action!";
 
         if (!String.IsNullOrEmpty(actionDisabledReason))
-            GameObject.Find("Action Description").GetComponent<UILabel>().text += actionDisabledReason;
+            GameObject.Find("Action Description").GetComponent<UILabel>().text += (" " + actionDisabledReason);
     }
 }

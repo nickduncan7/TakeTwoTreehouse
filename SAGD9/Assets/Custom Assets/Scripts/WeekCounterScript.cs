@@ -8,7 +8,12 @@ public class WeekCounterScript : MonoBehaviour {
 	void Start ()
 	{
 	    gameDataObject = GameDataObjectHelper.GetGameData();
-	    guiText.text = string.Format("Week {0}", gameDataObject.Week);
+        if (gameDataObject.Week != 5)
+	        guiText.text = string.Format("Week {0}", gameDataObject.Week);
+        else
+        {
+            guiText.text = "Last Week";
+        }
 	}
 	
 	// Update is called once per frame

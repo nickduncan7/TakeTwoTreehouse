@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class WednesdayDilemmaManager : MonoBehaviour
@@ -14,6 +15,9 @@ public class WednesdayDilemmaManager : MonoBehaviour
 	    var gdo = GameDataObjectHelper.GetGameData();
         if (gdo.SelectedScript.DilemmaDescription == string.Empty)
             Application.LoadLevel("DailyChoice");
+
+        if (gdo.SelectedScript.Dilemma == null)
+            gdo.SelectedScript.Dilemma = new Action(() => { });
 
         gdo.SelectedScript.Dilemma.Invoke();
 

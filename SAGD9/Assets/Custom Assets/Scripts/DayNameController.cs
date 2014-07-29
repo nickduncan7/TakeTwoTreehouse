@@ -11,7 +11,6 @@ public class DayNameController : MonoBehaviour
 	{
 	    var UILabel = this.GetComponent<UILabel>();
 	    var gameScript = GameDataObjectHelper.GetGameData();
-        Debug.Log(gameScript.GetCurrentDay());
 	    if (guiText)
             switch (gameScript.GetCurrentDay())
             {

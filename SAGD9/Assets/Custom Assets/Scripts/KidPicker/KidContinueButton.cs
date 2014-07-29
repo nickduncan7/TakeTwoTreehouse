@@ -57,6 +57,12 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
             if (pressed && Enabled)
             {
                 UIManagerHelper.GetUIManager().UpdateTitleText("Cast Selected!");
+
+                if (GameDataObjectHelper.GetGameData().CastContains("Ali"))
+                {
+                    GameDataObjectHelper.GetGameData().SelectedScript.Plot--;
+                }
+
                 transitionStarted = true;
             }
         }
