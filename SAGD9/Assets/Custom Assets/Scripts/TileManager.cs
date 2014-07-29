@@ -13,6 +13,7 @@ public class TileManager : MonoBehaviour
 
     private Sprite SelectedSprite;
 
+
     public void UpdateSprite(SpriteEnum spriteType)
     {
         switch (spriteType)

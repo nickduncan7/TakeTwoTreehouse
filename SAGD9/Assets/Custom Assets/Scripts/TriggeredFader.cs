@@ -51,11 +51,11 @@ public class TriggeredFader : MonoBehaviour
 
     public bool ClearTransitionComplete()
     {
-        return guiTexture.color.a <= 0.05;
+        return guiTexture.color.a <= 0.07;
     }
 
     public bool BlackTransitionComplete()
     {
-        return guiTexture.color.a >= 0.95;
+        return guiTexture.color.a >= 0.93;
     }
 }

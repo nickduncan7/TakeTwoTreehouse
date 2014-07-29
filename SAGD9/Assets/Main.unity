@@ -232,10 +232,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 318023771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 25155}
-  m_LocalScale: {x: 1520, y: 807.72998, z: 279.5}
+  m_LocalPosition: {x: 0, y: 0, z: 79.6044312}
+  m_LocalScale: {x: 7.92000008, y: 16.9500008, z: .884493709}
   m_Children: []
-  m_Father: {fileID: 1170694281}
+  m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!1 &652492057
 GameObject:
@@ -342,8 +342,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 991062826}
   - 114: {fileID: 991062827}
-  - 114: {fileID: 991062828}
   - 65: {fileID: 991062829}
+  - 114: {fileID: 991062828}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -395,7 +395,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 332
   mHeight: 78
-  mDepth: 2
+  mDepth: 8
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 991062825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca152dd146d7a7e47baf058b171452c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a7e29daee465d24c81aaa79536977cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &991062829
@@ -474,12 +474,11 @@ Transform:
   m_GameObject: {fileID: 1170694280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00359066436, y: .00359066436, z: .00359066436}
+  m_LocalScale: {x: .00316455704, y: .00316455704, z: .00316455704}
   m_Children:
   - {fileID: 1709189890}
-  - {fileID: 318023775}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!54 &1170694282
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -617,7 +616,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 272
   mHeight: 78
-  mDepth: 2
+  mDepth: 8
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -732,7 +731,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 370
   mHeight: 80
-  mDepth: 2
+  mDepth: 7
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -1032,7 +1031,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1936703684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1042,7 @@ GameObject:
   - 4: {fileID: 1936703687}
   - 82: {fileID: 1936703686}
   - 114: {fileID: 1936703685}
+  - 114: {fileID: 1936703688}
   m_Layer: 0
   m_Name: MusicPlayer
   m_TagString: Untagged
@@ -1069,9 +1069,9 @@ AudioSource:
   m_GameObject: {fileID: 1936703684}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: ff1b1c351fe28cf4ba15899442bff942, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .788999975
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1130,7 +1130,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
+--- !u!114 &1936703688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1936703684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0068a2a898363141a07188ab542986b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Song1: {fileID: 8300000, guid: ff1b1c351fe28cf4ba15899442bff942, type: 3}
+  Song2: {fileID: 8300000, guid: 54d9db710b16c81478a90d8fcf9a2c54, type: 3}
 --- !u!1 &2033967972
 GameObject:
   m_ObjectHideFlags: 0

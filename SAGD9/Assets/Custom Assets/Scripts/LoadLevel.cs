@@ -16,13 +16,12 @@ public class LoadLevel : MonoBehaviour
 
     private float scale;
 
-    public string LevelToLoad = "TestLevel";
 	// Use this for initialization
 	void Start ()
 	{
         Debug.Log(GrassPrefab.transform.localScale.x);
 	    scale = (GrassPrefab.transform.localScale.x*16f)/100f;
-	    LoadLevelMethod(LevelToLoad);
+        LoadLevelMethod();
 	}
 	
 	// Update is called once per frame
@@ -30,10 +29,25 @@ public class LoadLevel : MonoBehaviour
 	
 	}
 
-    void LoadLevelMethod(string FileName)
+    void LoadLevelMethod()
     {
         // Get the lines from the level file        
-        List<string> lines = GetTextFromFile(FileName);
+
+        var lines = new List<string>();
+        lines.Add( "|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+        lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+        lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
+        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
+        lines.Add("|U|U|X|.|.|.|O|O|.|.|.|L|*L|L|.|.|.|.|.|.|.|.|X|U|U|");
+        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
+        lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|X|U|U|");
+        lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|X|U|U|");
+        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
+        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|O|O|.|.|.|X|U|U|");
+        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
+        lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
+        lines.Add( "|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+        lines.Add( "|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
 
         int yIdx = 0;
         int xIdx = 0;
@@ -49,7 +63,6 @@ public class LoadLevel : MonoBehaviour
             {
                 xIdx++;
                 var Position = new KeyValuePair<int, int>(xIdx, yIdx);
-                bool isSpawnPoint = false;
 
                 // Get rid of any excess whitespace in the string
                 x.Trim();
@@ -116,18 +129,4 @@ public class LoadLevel : MonoBehaviour
           
     }
 
-    private List<string> GetTextFromFile(string fileName)
-    {
-        var blob = System.IO.File.ReadAllText(@"Assets\Custom Assets\Levels\" + fileName + ".txt");
-        var ret = blob.Split('\n').ToList();
-        ret.Reverse();
-
-        return ret;
-    }
-
-
-}
-
-internal class BlockController
-{
 }

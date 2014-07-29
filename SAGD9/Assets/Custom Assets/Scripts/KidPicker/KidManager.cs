@@ -182,7 +182,7 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
                     Title = "The Rich Kid",
                     Acting = 1,
                     Production = 3,
-                    Benefit = "Richy pitches in $15 for every scene he shoots.",
+                    Benefit = "Richy pitches in $10 for every scene he shoots.",
                     Availability = new List<Days>{Days.Monday, Days.Wednesday, Days.Friday}
                 },
                 new Kid

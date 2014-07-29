@@ -361,8 +361,8 @@ public class ShootMinigameManager : MonoBehaviour
 
             if (currentKid.Name == "Richy")
             {
-                gdo.Money += 15;
-                benefitBuilder.AppendLine("Richy pitched in $15 for this shoot!");
+                gdo.Money += 10;
+                benefitBuilder.AppendLine("Richy pitched in $10 for this shoot!");
             }
 
 

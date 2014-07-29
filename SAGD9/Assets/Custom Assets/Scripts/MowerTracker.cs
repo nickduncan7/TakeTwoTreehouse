@@ -44,7 +44,7 @@ public class MowerTracker : MonoBehaviour
 	                    GameDataObjectHelper.GetGameData().Money += 10;
 	                }
 	            }
-                audio.PlayOneShot(FinishSound);
+                //audio.PlayOneShot(FinishSound);
 	            moneyDispensed = true;
 	        }
 
