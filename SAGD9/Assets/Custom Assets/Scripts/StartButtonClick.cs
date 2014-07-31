@@ -4,9 +4,9 @@ using System.Collections;
 public class StartButtonClick : MonoBehaviour
 {
 
-    private bool MoveOn = false;
     private bool transitionStarted;
     private float timer;
+
 
     // Use this for initialization
 	void Start () {
@@ -18,11 +18,11 @@ public class StartButtonClick : MonoBehaviour
         if (transitionStarted)
         {
             timer += Time.deltaTime;
-            if (timer >= 1)
+            if (timer >= 0.3)
             {
                 FaderHelper.FadeToBlack();
             }
-            if (timer >= 5 && FaderHelper.BlackTransitionComplete())
+            if (timer >= 4 && FaderHelper.BlackTransitionComplete())
             {
                 Application.LoadLevel("DayTitleCard");
             }

@@ -28,29 +28,33 @@ public class ActionManager : MonoBehaviour {
 
         GameObject.Find("Cast1").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(gameDataObject.Cast[0]);
         GameObject.Find("Cast1").transform.FindChild("Label").GetComponent<UILabel>().text = gameDataObject.Cast[0].Name;
+        GameObject.Find("Cast1").transform.FindChild("Availability").GetComponent<UILabel>().text = gameDataObject.Cast[0].GetAvailabilityShort();
+
 
         if (!gameDataObject.Cast[0].Availability.Contains(gameDataObject.GetCurrentDay()))
         {
-            GameObject.Find("Cast1").GetComponent<UI2DSprite>().alpha = 0.5f;
+            GameObject.Find("Cast1").GetComponent<UI2DSprite>().alpha = 0.4f;
         }
 
         GameObject.Find("Cast2").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(gameDataObject.Cast[1]);
         GameObject.Find("Cast2").transform.FindChild("Label").GetComponent<UILabel>().text = gameDataObject.Cast[1].Name;
+        GameObject.Find("Cast2").transform.FindChild("Availability").GetComponent<UILabel>().text = gameDataObject.Cast[1].GetAvailabilityShort();
+
 
         if (!gameDataObject.Cast[1].Availability.Contains(gameDataObject.GetCurrentDay()))
         {
-            GameObject.Find("Cast2").GetComponent<UI2DSprite>().alpha = 0.5f;
+            GameObject.Find("Cast2").GetComponent<UI2DSprite>().alpha = 0.4f;
         }
 
         GameObject.Find("Cast3").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(gameDataObject.Cast[2]);
         GameObject.Find("Cast3").transform.FindChild("Label").GetComponent<UILabel>().text = gameDataObject.Cast[2].Name;
+        GameObject.Find("Cast3").transform.FindChild("Availability").GetComponent<UILabel>().text = gameDataObject.Cast[2].GetAvailabilityShort();
+
 
         if (!gameDataObject.Cast[2].Availability.Contains(gameDataObject.GetCurrentDay()))
         {
-            GameObject.Find("Cast3").GetComponent<UI2DSprite>().alpha = 0.5f;
+            GameObject.Find("Cast3").GetComponent<UI2DSprite>().alpha = 0.4f;
         }
-
-        var SelectionArrow = GameObject.Find("SelectionArrow");
 
         var SceneButton = GameObject.Find("Shoot Scene Button").GetComponent<ActionsButton>();
         var MowButton = GameObject.Find("Mow Lawn Button").GetComponent<ActionsButton>();
@@ -60,7 +64,7 @@ public class ActionManager : MonoBehaviour {
         SceneButton.AssociatedAction = new GameAction
 	    {
 	        Name = "Shoot a Scene",
-	        Description = "Shoots a scene for your movie.",
+	        Description = "Shoots a scene for your movie. Cast members that are available are highlighted.",
             LevelToLoad = "ShootSceneMinigame",
             Allowed = true
 	    };
@@ -174,7 +178,6 @@ public class ActionManager : MonoBehaviour {
     public void AllowOutsideTasks()
     {
         var SceneButton = GameObject.Find("Shoot Scene Button").GetComponent<ActionsButton>();
-        var ShootRetakeButton = GameObject.Find("Shoot Retake Button").GetComponent<ActionsButton>();
 
         SceneButton.Enable();
         SceneButton.AssociatedAction.Allowed = true;

@@ -23,13 +23,13 @@ public class MusicManager : MonoBehaviour {
 	        if (NextSong == Song1)
 	        {
 	            audio.clip = Song1;
-                audio.Play(1);
+                audio.PlayDelayed(1);
 	            NextSong = Song2;
 	        }
 	        else
 	        {
                 audio.clip = Song2;
-                audio.Play(1);
+                audio.PlayDelayed(1);
                 NextSong = Song1;
 	        }
 	    }

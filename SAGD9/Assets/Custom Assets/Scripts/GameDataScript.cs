@@ -58,13 +58,18 @@ public class GameDataScript : MonoBehaviour {
 
     public void NextDay()
     {
-        if (ConsecutiveDaysNotMowed >= 3)
+        if (Week == lastWeek && DayOfWeek == Days.Saturday)
+        {
+            Application.LoadLevel("GameOver");
+        }
+
+        if (ConsecutiveDaysNotMowed == 4)
             GroundPlayer();
 
         if (DayOfWeek == Days.Saturday)
         {
             DayOfWeek = Days.Sunday;
-            InternalPatronModifier += 0.5f;
+            InternalPatronModifier += 0.8f;
             Week++;
             Application.LoadLevel("DayTitleCard");
             return;
@@ -73,11 +78,6 @@ public class GameDataScript : MonoBehaviour {
         DayOfWeek++;
        
         Application.LoadLevel("DayTitleCard");
-
-        if (Week == lastWeek && DayOfWeek == Days.Saturday)
-        {
-            Application.LoadLevel("GameOver");
-        }
     }
 
     public List<Script> GetScripts()

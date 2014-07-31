@@ -32,7 +32,7 @@ public class ShootMinigameManager : MonoBehaviour
 
     private bool pointsAwarded;
 
-    private float countdownTimer = 2.1f;
+    private float countdownTimer = 2.7f;
     private float timer = 0f;
 
     public bool AnswerSelected;
@@ -128,13 +128,13 @@ public class ShootMinigameManager : MonoBehaviour
                 {
                     fadeIn = false;
                     fadeComplete = false;
-                    var fadeout = TweenAlpha.Begin(GameObject.Find("Container"), 0.3f, -0.1f);
+                    var fadeout = TweenAlpha.Begin(GameObject.Find("Container"), 0.2f, -0.1f);
                     fadeout.ignoreTimeScale = false;
                     fadeout.PlayForward();
 
                     if (GameObject.Find("Container").GetComponent<UIWidget>().alpha <= -0.01)
                     {
-                        countdownTimer = 2.1f;
+                        countdownTimer = 2.7f;
                         NextKidFinish();
                         fadeOut = false;
                         fadeComplete = true;
@@ -150,7 +150,7 @@ public class ShootMinigameManager : MonoBehaviour
 
                     fadeOut = false;
                     fadeComplete = false;
-                    var fadein = TweenAlpha.Begin(GameObject.Find("Container"), 0.3f, 1.1f);
+                    var fadein = TweenAlpha.Begin(GameObject.Find("Container"), 0.2f, 1.1f);
                     fadein.PlayForward();
 
                     if (GameObject.Find("Container").GetComponent<UIWidget>().alpha >= 1.01)
@@ -163,7 +163,7 @@ public class ShootMinigameManager : MonoBehaviour
             }
             else
             {
-                var fadein = TweenAlpha.Begin(GameObject.Find("GameStatsLabel"), 2f, 1.1f);
+                var fadein = TweenAlpha.Begin(GameObject.Find("GameStatsLabel"), 1f, 1.1f);
                 fadein.PlayForward();
 
                 GameObject.Find("Container").GetComponent<UIWidget>().alpha = 0;

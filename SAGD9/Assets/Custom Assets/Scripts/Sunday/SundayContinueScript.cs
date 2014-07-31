@@ -13,11 +13,11 @@ public class SundayContinueScript : MonoBehaviour {
 	    if (transitionStarted)
 	    {
 	        timer += Time.deltaTime;
-	        if (timer >= 3)
+	        if (timer >= 0.8)
 	        {
                 FaderHelper.FadeToBlack();
 	        }
-            if (timer >= 7 && FaderHelper.BlackTransitionComplete())
+            if (timer >= 4 && FaderHelper.BlackTransitionComplete())
             {
                 GameDataObjectHelper.GetGameData().NextDay();
                 Application.LoadLevel("ChooseKids");

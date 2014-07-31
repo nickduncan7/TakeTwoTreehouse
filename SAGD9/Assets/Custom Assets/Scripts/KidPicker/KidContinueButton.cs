@@ -29,11 +29,11 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
             if (transitionStarted)
             {
                 timer += Time.deltaTime;
-                if (timer >= 3)
+                if (timer >= 0.8)
                 {
                     FaderHelper.FadeToBlack();
                 }
-                if (timer >= 7 && FaderHelper.BlackTransitionComplete())
+                if (timer >= 4 && FaderHelper.BlackTransitionComplete())
                 {
                     Application.LoadLevel("DayTitleCard");
                 }

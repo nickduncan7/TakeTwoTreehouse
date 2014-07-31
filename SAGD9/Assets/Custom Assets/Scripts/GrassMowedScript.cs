@@ -25,7 +25,7 @@ public class GrassMowedScript : MonoBehaviour {
         {
             GetComponent<SpriteRenderer>().sprite = SpriteToChangeTo;
             isMowed = true;
-            audio.PlayOneShot(MowSound);
+            audio.PlayOneShot(MowSound, 0.7f);
             MowerTrackerHelper.GetMowerDataScript().GrassTilesMowed++;
         }
     }

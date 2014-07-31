@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 5d63864fc73c76347a8a763911f09a3c
+guid: 83476cc8912078542a94c7c259de58fd
 TextureImporter:
   fileIDToRecycleName:
-    21300000: MenuBackground
+    21300000: TTTHLogo
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -23,12 +23,12 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 4096
+  maxTextureSize: 1024
   textureSettings:
     filterMode: 0
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

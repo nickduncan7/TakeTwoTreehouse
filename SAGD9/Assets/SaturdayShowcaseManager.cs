@@ -56,7 +56,7 @@ public class SaturdayShowcaseManager : MonoBehaviour
 
             for (int i = 0; i < patrons; i++)
             {
-                if (Random.Range(1, 5) == 4)
+                if (Random.Range(1, 7) >= 5)
                 {
                     patrons--;
                     gdo.Fans++;
@@ -69,7 +69,7 @@ public class SaturdayShowcaseManager : MonoBehaviour
         }
         else
         {
-            multiplier = 0.5;
+            multiplier = 0.66;
             labelBuilder.AppendLine("The movie was poorly received.");
 
         }
@@ -83,7 +83,7 @@ public class SaturdayShowcaseManager : MonoBehaviour
 
         if (gdo.Fans > 0)
         {
-            moneyEarned += 0.50 * gdo.Fans * multiplier;
+            moneyEarned += 0.75 * gdo.Fans * multiplier;
             moneyEarned = Math.Ceiling(moneyEarned);
             labelBuilder.AppendLine(gdo.Fans + " fans give you " + moneyEarned.ToString("C0") + " dollars total in tips.");
             labelBuilder.AppendLine();
