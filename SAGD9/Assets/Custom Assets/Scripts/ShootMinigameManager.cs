@@ -105,7 +105,7 @@ public class ShootMinigameManager : MonoBehaviour
         {
             if (!finished)
             {
-                GameObject.Find("TimerLabel").GetComponent<UILabel>().text = countdownTimer.ToString("N0");
+                GameObject.Find("TimerLabel").GetComponent<UILabel>().text = countdownTimer.ToString("#':'00");
 
                 if (countdownTimer <= 0.05f)
                 {
