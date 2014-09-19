@@ -2,11 +2,11 @@
 using System.Collections;
 
 public class FadeInOut : MonoBehaviour {
-    private float startWaitTime = 2f;
-    private float timeActive = 11f;
-    private float timeToEnd = 3f;
+    private float startWaitTime = 1.5f;
+    private float timeActive = 9f;
+    private float timeToEnd = 2f;
     private float timer;
-    private float fadeSpeed = 0.7f;
+    private float fadeSpeed = 1.5f;
 
     // Use this for initialization
 	void Start ()

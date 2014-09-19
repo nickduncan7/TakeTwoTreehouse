@@ -22,7 +22,7 @@ public class StartButtonClick : MonoBehaviour
             {
                 FaderHelper.FadeToBlack();
             }
-            if (timer >= 4 && FaderHelper.BlackTransitionComplete())
+            if (timer >= 2 && FaderHelper.BlackTransitionComplete())
             {
                 Application.LoadLevel("DayTitleCard");
             }

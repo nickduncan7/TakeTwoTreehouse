@@ -7,7 +7,7 @@ public class TriggeredFader : MonoBehaviour
     private bool fadeToClear = false;
     private bool fadeToBlack = false;
 
-    private float fadeSpeed = 0.9f;
+    private float fadeSpeed = 1.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -51,11 +51,11 @@ public class TriggeredFader : MonoBehaviour
 
     public bool ClearTransitionComplete()
     {
-        return guiTexture.color.a <= 0.07;
+        return guiTexture.color.a <= 0.09;
     }
 
     public bool BlackTransitionComplete()
     {
-        return guiTexture.color.a >= 0.93;
+        return guiTexture.color.a >= 0.91;
     }
 }

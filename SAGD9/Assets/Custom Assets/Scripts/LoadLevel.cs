@@ -34,21 +34,30 @@ public class LoadLevel : MonoBehaviour
         // Get the lines from the level file        
 
         var lines = new List<string>();
-        lines.Add( "|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
-        lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
-        lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
-        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
-        lines.Add("|U|U|X|.|.|.|O|O|.|.|.|L|*L|L|.|.|.|.|.|.|.|.|X|U|U|");
-        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
-        lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|X|U|U|");
-        lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|X|U|U|");
-        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
-        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|O|O|.|.|.|X|U|U|");
-        lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
-        lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
-        lines.Add( "|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
-        lines.Add( "|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
 
+        var rnd = Random.Range(1, 3);
+
+        if (rnd == 1)
+        {
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+            lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|O|O|.|.|.|L|*L|L|.|.|.|.|.|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|O|O|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|.|.|.|.|.|L|L|L|.|.|.|.|.|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+        }
+        else if (rnd == 2)
+        {
+            
+        }
         int yIdx = 0;
         int xIdx = 0;
 

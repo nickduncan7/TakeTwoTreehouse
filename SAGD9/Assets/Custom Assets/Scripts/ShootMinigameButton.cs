@@ -37,7 +37,6 @@ public class ShootMinigameButton : MonoBehaviour
     void OnPress(bool pressed)
     {
         var manager = GameObject.Find("ShootMinigameManager").GetComponent<ShootMinigameManager>();
-
         if (pressed && !clicked && !manager.AnswerSelected)
         {
             clicked = true;

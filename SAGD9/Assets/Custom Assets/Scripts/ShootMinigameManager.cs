@@ -32,7 +32,9 @@ public class ShootMinigameManager : MonoBehaviour
 
     private bool pointsAwarded;
 
-    private float countdownTimer = 2.7f;
+    private static float countdownTime = 2.8f;
+
+    private float countdownTimer = countdownTime;
     private float timer = 0f;
 
     public bool AnswerSelected;
@@ -41,12 +43,8 @@ public class ShootMinigameManager : MonoBehaviour
     public List<Kid> Cast;
     public Kid CurrentKid;
     public string CurrentWord;
-    private bool fadeOut;
-    private bool fadeIn;
-    private bool fadeComplete;
     private bool countingDown;
 
-    private bool finished = false;
     private bool intro = true;
 
     private bool success;
@@ -89,10 +87,34 @@ public class ShootMinigameManager : MonoBehaviour
         return null;
     }
 
+    IEnumerator FadeOut()
+    {
+        var fadeout = TweenAlpha.Begin(GameObject.Find("Container"), 0.4f, -0.1f);
+        fadeout.ignoreTimeScale = false;
+        fadeout.PlayForward();
+
+        if (GameObject.Find("Container").GetComponent<UIWidget>().alpha <= -0.01)
+        {
+            countdownTimer = 2.7f;
+            NextKidFinish();
+        }
+
+        yield return null;
+    }
+
     void Update()
     {
 
+        if (countingDown)
+        {
+            GameObject.Find("TimerLabel").GetComponent<UILabel>().text = countdownTimer.ToString("#");
+            countdownTimer -= Time.deltaTime;
 
+            if (countdownTimer <= 0.05f)
+            {
+                StartCoroutine(NextKid());
+            }
+        }
         if (intro)
         {
             timer += Time.deltaTime;
@@ -101,85 +123,25 @@ public class ShootMinigameManager : MonoBehaviour
                 intro = false;
             }
         }
-        else
-        {
-            if (!finished)
-            {
-                GameObject.Find("TimerLabel").GetComponent<UILabel>().text = countdownTimer.ToString("#':'00");
+        
+            //else
+            //{
+            //    var fadein = TweenAlpha.Begin(GameObject.Find("GameStatsLabel"), 1f, 1.1f);
+            //    fadein.PlayForward();
 
-                if (countdownTimer <= 0.05f)
-                {
-                    countingDown = false;
-                    if (!success && !AnswerSelected)
-                    {
-                        UpdateInstructions("You weren't fast enough, kid!");
-                        RecordFailure(CurrentKid);
-                    }
-                    NextKid();
-                }
+            //    GameObject.Find("Container").GetComponent<UIWidget>().alpha = 0;
 
-
-                if (fadeComplete && countingDown)
-                {
-                    countdownTimer -= Time.deltaTime;
-                }
-
-                if (fadeOut)
-                {
-                    fadeIn = false;
-                    fadeComplete = false;
-                    var fadeout = TweenAlpha.Begin(GameObject.Find("Container"), 0.2f, -0.1f);
-                    fadeout.ignoreTimeScale = false;
-                    fadeout.PlayForward();
-
-                    if (GameObject.Find("Container").GetComponent<UIWidget>().alpha <= -0.01)
-                    {
-                        countdownTimer = 2.7f;
-                        NextKidFinish();
-                        fadeOut = false;
-                        fadeComplete = true;
-                        fadeIn = true;
-                    }
-                }
-
-
-                if (fadeIn && !finished)
-                {
-                    success = false;
-                    Debug.Log(GameObject.Find("Container").GetComponent<UIWidget>().alpha);
-
-                    fadeOut = false;
-                    fadeComplete = false;
-                    var fadein = TweenAlpha.Begin(GameObject.Find("Container"), 0.2f, 1.1f);
-                    fadein.PlayForward();
-
-                    if (GameObject.Find("Container").GetComponent<UIWidget>().alpha >= 1.01)
-                    {
-                        countingDown = true;
-                        fadeIn = false;
-                        fadeComplete = true;
-                    }
-                }
-            }
-            else
-            {
-                var fadein = TweenAlpha.Begin(GameObject.Find("GameStatsLabel"), 1f, 1.1f);
-                fadein.PlayForward();
-
-                GameObject.Find("Container").GetComponent<UIWidget>().alpha = 0;
-
-                timer += Time.deltaTime;
-                if (timer >= 9f)
-                {
-                    FaderHelper.FadeToBlack();
-                    if (FaderHelper.BlackTransitionComplete())
-                    {
-                        GameDataObjectHelper.GetGameData().NextDay();
-                        Application.LoadLevel("DayTitleCard");
-                    }
-                }
-            }
-        }
+            //    timer += Time.deltaTime;
+            //    if (timer >= 9f)
+            //    {
+            //        FaderHelper.FadeToBlack();
+            //        if (FaderHelper.BlackTransitionComplete())
+            //        {
+            //            GameDataObjectHelper.GetGameData().NextDay();
+            //            Application.LoadLevel("DayTitleCard");
+            //        }
+            //    }
+            //}
     }
 
 	// Use this for initialization
@@ -190,9 +152,6 @@ public class ShootMinigameManager : MonoBehaviour
 
         Cast = new List<Kid>();
         var gameDataObject = GameDataObjectHelper.GetGameData();
-
-        Debug.Log(gameDataObject.Cast.Count);
-
         gameDataObject.Cast.ForEach(cast =>
         {
             if (cast.Availability.Contains(gameDataObject.GetCurrentDay()))
@@ -205,7 +164,6 @@ public class ShootMinigameManager : MonoBehaviour
 	    CurrentKid = Cast[kidIdx];
 	    GameObject.Find("KidSprite").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(CurrentKid);
 
-	    fadeIn = true;
         wordList = new List<string>
 	    {
 	        "Shoot",
@@ -222,7 +180,155 @@ public class ShootMinigameManager : MonoBehaviour
         Random.seed = (int)DateTime.Now.Ticks;
 
         SelectNewWord();
+
+        StartCoroutine(Begin());
+
 	}
+
+    private IEnumerator Begin()
+    {
+        yield return new WaitForSeconds(2);
+        StartCoroutine(FadeInInstructions());
+  
+    }
+
+    private IEnumerator FadeInInstructions()
+    {
+        var fadein = TweenAlpha.Begin(GameObject.Find("InstructionLabel"), 0.4f, 1.1f);
+        fadein.PlayForward();
+        var fadein2 = TweenAlpha.Begin(GameObject.Find("Container"), 0.4f, 1.1f);
+        fadein2.PlayForward();
+
+        yield return new WaitForSeconds(3);
+        StartCoroutine(FadeInButtons());
+    }
+
+    private IEnumerator FadeInButtons()
+    {
+        var fadein = TweenAlpha.Begin(GameObject.Find("ButtonsContainer"), 0.4f, 1.1f);
+        fadein.PlayForward();
+
+        yield return new WaitForSeconds(0.5f);
+        countingDown = true;
+    }
+
+    public IEnumerator NextKid()
+    {
+        countingDown = false;
+        countdownTimer = countdownTime;
+
+        if (!success && !AnswerSelected)
+        {
+            UpdateInstructions("You weren't fast enough, kid!");
+            yield return new WaitForSeconds(3);
+
+            var fadein = TweenAlpha.Begin(GameObject.Find("InstructionLabel"), 0.4f, -0.1f);
+            fadein.PlayForward();
+            var fadein2 = TweenAlpha.Begin(GameObject.Find("Container"), 0.4f, -0.1f);
+            fadein2.PlayForward();
+            var fadein3 = TweenAlpha.Begin(GameObject.Find("ButtonsContainer"), 0.4f, -0.1f);
+            fadein3.PlayForward();
+
+            yield return new WaitForSeconds(0.5f);
+            RecordFailure(CurrentKid);
+        }
+        else
+        {
+            yield return new WaitForSeconds(3);
+
+            var fadein = TweenAlpha.Begin(GameObject.Find("InstructionLabel"), 0.4f, -0.1f);
+            fadein.PlayForward();
+            var fadein2 = TweenAlpha.Begin(GameObject.Find("Container"), 0.4f, -0.1f);
+            fadein2.PlayForward();
+            var fadein3 = TweenAlpha.Begin(GameObject.Find("ButtonsContainer"), 0.4f, -0.1f);
+            fadein3.PlayForward();
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        kidIdx++;
+
+        success = false;
+        AnswerSelected = false;
+        pointsAwarded = false;
+
+        if (kidIdx != Cast.Count)
+        {
+            CurrentKid = Cast[kidIdx];
+            SelectNewWord();
+            GameObject.Find("KidSprite").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(CurrentKid);
+            StartCoroutine(Begin());
+        }
+        else
+        {
+            StartCoroutine(NextKidFinish()); 
+        }
+
+    }
+
+    public IEnumerator NextKidFinish()
+    {
+        
+
+        pointsAwarded = false;
+        var gdo = GameDataObjectHelper.GetGameData();
+
+        var label = GameObject.Find("GameStatsLabel").GetComponent<UILabel>();
+        label.text = string.Empty;
+
+        var sbuilder = new StringBuilder();
+
+        sbuilder.AppendLine("Recording this scene contributed the following:");
+
+        if (gainedPlot != 0)
+            sbuilder.AppendLine(gainedPlot + " Plot point(s)");
+
+        if (gainedAction != 0)
+            sbuilder.AppendLine(gainedAction + " Action point(s)");
+
+        if (gainedEffects != 0)
+            sbuilder.AppendLine(gainedEffects + " Effects point(s)");
+
+        sbuilder.AppendLine();
+
+        sbuilder.AppendLine("Total:");
+        sbuilder.AppendLine("Plot: " + gdo.SelectedScript.GainedPlot + "/" + gdo.SelectedScript.Plot);
+        sbuilder.AppendLine("Action: " + gdo.SelectedScript.GainedAction + "/" + gdo.SelectedScript.Action);
+        sbuilder.AppendLine("Effects: " + gdo.SelectedScript.GainedEffects + "/" + gdo.SelectedScript.Effects);
+
+        if (!String.IsNullOrEmpty(benefitBuilder.ToString()))
+        {
+            sbuilder.AppendLine();
+            sbuilder.AppendLine("BONUS: ");
+            label.text = sbuilder.ToString() + benefitBuilder.ToString();
+        }
+        else
+        {
+            label.text = sbuilder.ToString();
+
+        }
+
+        timer = 0f;
+        countdownTimer = 0f;
+
+        yield return new WaitForSeconds(1);
+
+        var fadein = TweenAlpha.Begin(GameObject.Find("InstructionLabel"), 0.4f, -0.1f);
+        fadein.PlayForward();
+        var fadein2 = TweenAlpha.Begin(GameObject.Find("Container"), 0.4f, -0.1f);
+        fadein2.PlayForward();
+        var fadein3 = TweenAlpha.Begin(GameObject.Find("ButtonsContainer"), 0.4f, -0.1f);
+        fadein3.PlayForward();
+        yield return new WaitForSeconds(1.5f);
+        var fadein4 = TweenAlpha.Begin(GameObject.Find("GameStatsLabel"), 0.4f, 1.1f);
+        fadein4.PlayForward();
+
+        yield return new WaitForSeconds(7f);
+
+        FaderHelper.FadeToBlack();
+        yield return new WaitForSeconds(2f);
+        GameDataObjectHelper.GetGameData().NextDay();
+        Application.LoadLevel("DayTitleCard");
+    }
 
     public void SelectNewWord()
     {
@@ -332,8 +438,6 @@ public class ShootMinigameManager : MonoBehaviour
 
     public void RecordSuccess(Kid currentKid)
     {
-
-
         if (!pointsAwarded)
         {
 
@@ -464,67 +568,5 @@ public class ShootMinigameManager : MonoBehaviour
         }
     }
 
-    public void NextKid()
-    {
-
-        fadeOut = true;
-    }
-
-    public void NextKidFinish()
-    {
-        pointsAwarded = false;
-        kidIdx++;
-        if (kidIdx != Cast.Count)
-        {
-            CurrentKid = Cast[kidIdx];
-            GameObject.Find("KidSprite").GetComponent<UI2DSprite>().sprite2D = GetSpriteForKid(CurrentKid);
-            SelectNewWord();
-            UpdateInstructions();
-        }
-        else
-        {
-            var gdo = GameDataObjectHelper.GetGameData();
-
-            var label = GameObject.Find("GameStatsLabel").GetComponent<UILabel>();
-                label.text = string.Empty;
-
-            var sbuilder = new StringBuilder();
-
-            sbuilder.AppendLine("Recording this scene contributed the following:");
-
-            if (gainedPlot != 0)
-                sbuilder.AppendLine(gainedPlot + " Plot point(s)");
-
-            if (gainedAction != 0)
-                sbuilder.AppendLine(gainedAction + " Action point(s)");
-
-            if (gainedEffects != 0)
-                sbuilder.AppendLine(gainedEffects + " Effects point(s)");
-
-            sbuilder.AppendLine();
-
-            sbuilder.AppendLine("Total:");
-            sbuilder.AppendLine("Plot: " + gdo.SelectedScript.GainedPlot + "/" + gdo.SelectedScript.Plot);
-            sbuilder.AppendLine("Action: " + gdo.SelectedScript.GainedAction + "/" + gdo.SelectedScript.Action);
-            sbuilder.AppendLine("Effects: " + gdo.SelectedScript.GainedEffects + "/" + gdo.SelectedScript.Effects);
-
-            if (!String.IsNullOrEmpty(benefitBuilder.ToString()))
-            {
-                sbuilder.AppendLine();
-                sbuilder.AppendLine("BONUS: ");
-                label.text = sbuilder.ToString() + benefitBuilder.ToString();
-            }
-            else
-            {
-                label.text = sbuilder.ToString();
-                
-            }
-
-            timer = 0f;
-            countdownTimer = 0f;
-            GameObject.Find("Container").GetComponent<UIWidget>().alpha = 0;
-            finished = true;
-            
-        }
-    }
+    
 }
