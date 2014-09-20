@@ -24,7 +24,7 @@ public class StartButtonClick : MonoBehaviour
             }
             if (timer >= 2 && FaderHelper.BlackTransitionComplete())
             {
-                Application.LoadLevel("DayTitleCard");
+                Application.LoadLevel("intro");
             }
         }
     }

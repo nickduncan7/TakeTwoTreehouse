@@ -69,6 +69,7 @@
      <Compile Include="Assets\Custom Assets\Scripts\Helpers\GameDataObjectHelper.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Helpers\MowerTrackerHelper.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\Helpers\UIManagerHelper.cs" />
+     <Compile Include="Assets\Custom Assets\Scripts\Intro\introscript.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\KidPicker\CastButton.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\KidPicker\KidButton.cs" />
      <Compile Include="Assets\Custom Assets\Scripts\KidPicker\KidContinueButton.cs" />

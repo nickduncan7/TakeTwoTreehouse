@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class MowerTracker : MonoBehaviour
@@ -15,6 +16,13 @@ public class MowerTracker : MonoBehaviour
 	void Start () {
 	
 	}
+
+    private IEnumerator Done()
+    {
+        var fadein = TweenAlpha.Begin(GameObject.Find("DoneContainer"), 0.4f, 1.1f);
+        fadein.PlayForward();
+        yield return null;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -25,28 +33,34 @@ public class MowerTracker : MonoBehaviour
 	        {
 	            if (GameDataObjectHelper.GetGameData().IsGrounded)
 	            {
-                    UIManagerHelper.GetUIManager().UpdateTitleText("Completed Chores");
-                    UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You are no longer grounded.");
+                    GameObject.Find("SelectedLabel").GetComponent<UILabel>().text =
+                    String.Format("Chores complete!{0}You are no longer [i][ccff55]{1}![-][/i]",
+                        System.Environment.NewLine, "grounded");
 	                GameDataObjectHelper.GetGameData().UngroundPlayer();
 	            }
                 else
 	            {
-                    UIManagerHelper.GetUIManager().UpdateTitleText("Completed Chores");
 
 	                if (GameDataObjectHelper.GetGameData().CastContains("Your Little Brother"))
 	                {
-                        UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You earned $15");
+                        GameObject.Find("SelectedLabel").GetComponent<UILabel>().text =
+                    String.Format("Chores complete!{0}You earned [i][ccff55]{1}![-][/i]",
+                        System.Environment.NewLine, "$15");
 	                    GameDataObjectHelper.GetGameData().Money += 15;
 	                }
 	                else
 	                {
-                        UIManagerHelper.GetUIManager().UpdateSubTitleText("Mowing Complete! You earned $10");
+                        GameObject.Find("SelectedLabel").GetComponent<UILabel>().text =
+                    String.Format("Chores complete!{0}You earned [i][ccff55]{1}![-][/i]",
+                        System.Environment.NewLine, "$10");
 	                    GameDataObjectHelper.GetGameData().Money += 10;
 	                }
 	            }
                 //audio.PlayOneShot(FinishSound);
 	            moneyDispensed = true;
 	        }
+
+	        StartCoroutine(Done());
 
 	        timer += Time.deltaTime;
 	        if (timer >= 5f)

@@ -87,21 +87,6 @@ public class ShootMinigameManager : MonoBehaviour
         return null;
     }
 
-    IEnumerator FadeOut()
-    {
-        var fadeout = TweenAlpha.Begin(GameObject.Find("Container"), 0.4f, -0.1f);
-        fadeout.ignoreTimeScale = false;
-        fadeout.PlayForward();
-
-        if (GameObject.Find("Container").GetComponent<UIWidget>().alpha <= -0.01)
-        {
-            countdownTimer = 2.7f;
-            NextKidFinish();
-        }
-
-        yield return null;
-    }
-
     void Update()
     {
 
@@ -124,24 +109,6 @@ public class ShootMinigameManager : MonoBehaviour
             }
         }
         
-            //else
-            //{
-            //    var fadein = TweenAlpha.Begin(GameObject.Find("GameStatsLabel"), 1f, 1.1f);
-            //    fadein.PlayForward();
-
-            //    GameObject.Find("Container").GetComponent<UIWidget>().alpha = 0;
-
-            //    timer += Time.deltaTime;
-            //    if (timer >= 9f)
-            //    {
-            //        FaderHelper.FadeToBlack();
-            //        if (FaderHelper.BlackTransitionComplete())
-            //        {
-            //            GameDataObjectHelper.GetGameData().NextDay();
-            //            Application.LoadLevel("DayTitleCard");
-            //        }
-            //    }
-            //}
     }
 
 	// Use this for initialization
