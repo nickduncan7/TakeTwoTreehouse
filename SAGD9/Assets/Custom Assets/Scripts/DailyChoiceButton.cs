@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using System.Collections;
 
@@ -34,6 +35,16 @@ public class DailyChoiceButton : MonoBehaviour
     }
 
 
+    private IEnumerator Done()
+    {
+        var fadein = TweenAlpha.Begin(GameObject.Find("DoneContainer"), 0.4f, 1.1f);
+        fadein.PlayForward();
+
+        yield return new WaitForSeconds(3.5f);
+
+        transitionStarted = true;
+    }
+
     private float timer;
     private bool transitionStarted = false;
     private bool activated = false;
@@ -44,13 +55,24 @@ public class DailyChoiceButton : MonoBehaviour
         {
             if (!activated)
             {
-                if (actionManager.SelectedAction.Name != "Do Chores")
-                    gameDataScript.ConsecutiveDaysNotMowed++;
-                else
+
+                if (actionManager.SelectedAction.Name == "Do Chores")
                 {
                     gameDataScript.ConsecutiveDaysNotMowed = 0;
+                    GameObject.Find("SelectedLabel").GetComponent<UILabel>().text =
+                    String.Format("Selected{0}[i][ccff55]{1}![-][/i]",
+                        System.Environment.NewLine, "chores");
                 }
-                transitionStarted = true;
+                else
+                {
+                    gameDataScript.ConsecutiveDaysNotMowed++;
+                    GameObject.Find("SelectedLabel").GetComponent<UILabel>().text =
+                    String.Format("Selected{0}[i][ccff55]{1}![-][/i]",
+                        System.Environment.NewLine, "scene recording");
+                }
+
+                StartCoroutine(Done());
+
                 activated = true;
             }
         }

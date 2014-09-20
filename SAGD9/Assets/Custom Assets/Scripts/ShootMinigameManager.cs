@@ -32,7 +32,7 @@ public class ShootMinigameManager : MonoBehaviour
 
     private bool pointsAwarded;
 
-    private static float countdownTime = 2.8f;
+    private static float countdownTime = 3f;
 
     private float countdownTimer = countdownTime;
     private float timer = 0f;
@@ -107,7 +107,7 @@ public class ShootMinigameManager : MonoBehaviour
 
         if (countingDown)
         {
-            GameObject.Find("TimerLabel").GetComponent<UILabel>().text = countdownTimer.ToString("#");
+            GameObject.Find("TimerLabel").GetComponent<UILabel>().text = countdownTimer.ToString("0.00");
             countdownTimer -= Time.deltaTime;
 
             if (countdownTimer <= 0.05f)
@@ -187,7 +187,7 @@ public class ShootMinigameManager : MonoBehaviour
 
     private IEnumerator Begin()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         StartCoroutine(FadeInInstructions());
   
     }
@@ -214,6 +214,7 @@ public class ShootMinigameManager : MonoBehaviour
 
     public IEnumerator NextKid()
     {
+        countdownTimer = 0f;
         countingDown = false;
         countdownTimer = countdownTime;
 
@@ -318,7 +319,7 @@ public class ShootMinigameManager : MonoBehaviour
         fadein2.PlayForward();
         var fadein3 = TweenAlpha.Begin(GameObject.Find("ButtonsContainer"), 0.4f, -0.1f);
         fadein3.PlayForward();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         var fadein4 = TweenAlpha.Begin(GameObject.Find("GameStatsLabel"), 0.4f, 1.1f);
         fadein4.PlayForward();
 

@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using System.Collections;
 using Debug = UnityEngine.Debug;
+using System;
 
 public class LoadLevel : MonoBehaviour
 {
@@ -35,7 +36,11 @@ public class LoadLevel : MonoBehaviour
 
         var lines = new List<string>();
 
-        var rnd = Random.Range(1, 3);
+        UnityEngine.Random.seed = (int)DateTime.Now.Ticks;
+
+        var rnd = UnityEngine.Random.Range(1, 4);
+
+        Debug.Log(rnd);
 
         if (rnd == 1)
         {
@@ -56,10 +61,50 @@ public class LoadLevel : MonoBehaviour
         }
         else if (rnd == 2)
         {
-            
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+            lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
+            lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|*L|L|L|L|L|L|L|L|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|.|.|.|.|.|.|.|.|.|.|.|.|.|.|.|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|.|.|.|.|.|.|.|.|.|.|.|.|.|.|.|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|.|.|.|.|.|.|O|O|O|.|.|.|.|.|.|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|.|.|.|.|.|.|O|O|O|.|.|.|.|.|.|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|.|.|.|.|.|.|.|.|.|.|.|.|.|.|.|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|.|.|.|.|.|.|.|.|.|.|.|.|.|.|.|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|X|U|U|");
+            lines.Add("|U|U|X|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|L|X|U|U|");
+            lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+        }
+        else
+        {
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+            lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
+            lines.Add("|U|U|X|L|L|L|L|L|L|L|L|O|O|.|.|X|U|U|");
+            lines.Add("|U|U|X|L|L|L|L|L|L|L|L|O|O|.|.|X|U|U|");
+            lines.Add("|U|U|X|L|*L|.|.|.|.|.|.|.|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|L|L|.|.|.|.|.|.|.|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|O|O|O|O|O|O|O|O|O|O|.|.|X|U|U|");
+            lines.Add("|U|U|X|O|O|O|O|O|O|O|O|O|O|.|.|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|.|.|.|.|.|.|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|.|.|.|.|.|.|.|.|.|X|U|U|");
+            lines.Add("|U|U|X|.|.|O|O|O|O|O|O|O|O|O|O|X|U|U|");
+            lines.Add("|U|U|X|.|.|O|O|O|O|O|O|O|O|O|O|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|.|.|.|.|.|.|.|L|L|X|U|U|");
+            lines.Add("|U|U|X|.|.|.|.|.|.|.|.|.|.|L|L|X|U|U|");
+            lines.Add("|U|U|X|.|.|O|O|L|L|L|L|L|L|L|L|X|U|U|");
+            lines.Add("|U|U|X|.|.|O|O|L|L|L|L|L|L|L|L|X|U|U|");
+            lines.Add("|U|U|X|X|X|X|X|X|X|X|X|X|X|X|X|X|U|U|");
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
+            lines.Add("|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|U|");
         }
         int yIdx = 0;
         int xIdx = 0;
+
+        lines.Reverse();
 
         // Split by lines
         lines.ForEach(y =>

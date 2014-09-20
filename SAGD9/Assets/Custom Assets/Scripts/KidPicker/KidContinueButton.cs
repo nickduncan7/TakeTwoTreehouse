@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,18 +53,27 @@ namespace Assets.Custom_Assets.Scripts.KidPicker
             GetComponent<UI2DSprite>().sprite2D = DisabledSprite;
         }
 
+        private IEnumerator Done()
+        {
+            var fadein = TweenAlpha.Begin(GameObject.Find("DoneContainer"), 0.4f, 1.1f);
+            fadein.PlayForward();
+
+            yield return new WaitForSeconds(3.5f);
+
+            transitionStarted = true;
+        }
+
         void OnPress(bool pressed)
         {
             if (pressed && Enabled)
             {
-                UIManagerHelper.GetUIManager().UpdateTitleText("Cast Selected!");
 
                 if (GameDataObjectHelper.GetGameData().CastContains("Ali"))
                 {
                     GameDataObjectHelper.GetGameData().SelectedScript.Plot--;
                 }
 
-                transitionStarted = true;
+                StartCoroutine(Done());
             }
         }
     }
