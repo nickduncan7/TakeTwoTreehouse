@@ -63,6 +63,13 @@ public class DailyChoiceButton : MonoBehaviour
                     String.Format("Selected{0}[i][ccff55]{1}![-][/i]",
                         System.Environment.NewLine, "chores");
                 }
+                else if (actionManager.SelectedAction.Name == "Post Process a Scene")
+                {
+                    gameDataScript.ConsecutiveDaysNotMowed++;
+                    GameObject.Find("SelectedLabel").GetComponent<UILabel>().text =
+                    String.Format("Selected{0}[i][ccff55]{1}![-][/i]",
+                        System.Environment.NewLine, "post processing");
+                }
                 else
                 {
                     gameDataScript.ConsecutiveDaysNotMowed++;

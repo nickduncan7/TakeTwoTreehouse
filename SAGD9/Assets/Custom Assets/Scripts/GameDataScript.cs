@@ -19,11 +19,13 @@ public class GameDataScript : MonoBehaviour {
 
     public int Fans = 0;
 
-    public List<Kid> Cast; 
+    public List<Kid> Cast;
+
+    public List<Scene> WeekScenes; 
 
 	// Use this for initialization
 	void Start () {
-        
+        WeekScenes = new List<Scene>();
 	}
 	
 	// Update is called once per frame
@@ -70,6 +72,7 @@ public class GameDataScript : MonoBehaviour {
         {
             DayOfWeek = Days.Sunday;
             InternalPatronModifier += 0.8f;
+            WeekScenes = new List<Scene>();
             Week++;
             Application.LoadLevel("DayTitleCard");
             return;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Text;
 using Assets.Custom_Assets.Scripts.Classes;
 using UnityEngine;
 using System.Collections;
@@ -21,8 +22,21 @@ public class ActionManager : MonoBehaviour {
     public Sprite Brother;
 
 	// Use this for initialization
-	void Start () {
-        var gameDataObject = GameDataObjectHelper.GetGameData();
+	void Start ()
+	{
+	    var gameDataObject = GameDataObjectHelper.GetGameData();
+
+        var statPaneSBuilder = new StringBuilder();
+        statPaneSBuilder.AppendLine("[i][ccff55]Movie Stats[-][/i]");
+        statPaneSBuilder.AppendLine("");
+        statPaneSBuilder.AppendLine(String.Format("Action: {0}/{1}", gameDataObject.SelectedScript.GainedAction, gameDataObject.SelectedScript.Action));
+        statPaneSBuilder.AppendLine(String.Format("Effects: {0}/{1}", gameDataObject.SelectedScript.GainedEffects, gameDataObject.SelectedScript.Effects));
+        statPaneSBuilder.AppendLine(String.Format("Plot: {0}/{1}", gameDataObject.SelectedScript.GainedPlot, gameDataObject.SelectedScript.Plot));
+        statPaneSBuilder.AppendLine("");
+        statPaneSBuilder.AppendLine("[i][ccff55]Director Stats[-][/i]");
+        statPaneSBuilder.AppendLine(String.Format("Fans: {0}", gameDataObject.Fans));
+
+	    GameObject.Find("MovieStats").GetComponent<UILabel>().text = statPaneSBuilder.ToString();
 
 	    GameObject.Find("SubTitleLabel").GetComponent<UILabel>().text = "-" + gameDataObject.SelectedScript.Name + "-";
 
@@ -78,7 +92,9 @@ public class ActionManager : MonoBehaviour {
         PostProcessButton.AssociatedAction = new GameAction
         {
             Name = "Post Process a Scene",
-            Description = "Do some editing to your existing scenes in order to improve the movies' Effects or Action score."
+            Description = "Do some editing to your existing scenes in order to improve the movies' Effects or Action score.",
+            LevelToLoad = "PostProcess"
+            
         };
         ShootRetakeButton.AssociatedAction = new GameAction
         {
@@ -94,6 +110,12 @@ public class ActionManager : MonoBehaviour {
 	    else
 	    {
 	        AllowOutsideTasks();
+	    }
+
+	    if (gameDataObject.WeekScenes.Count != 0)
+	    {
+	        PostProcessButton.AssociatedAction.Allowed = true;
+            PostProcessButton.Enable();
 	    }
 
         if (!gameDataObject.Cast[0].Availability.Contains(gameDataObject.GetCurrentDay())
@@ -112,7 +134,6 @@ public class ActionManager : MonoBehaviour {
             MowButton.SelectMe();
             return;
         }
-
 
         if (PostProcessButton.IsEnabled)
         {

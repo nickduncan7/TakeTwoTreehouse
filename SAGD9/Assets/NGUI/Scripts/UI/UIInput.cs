@@ -117,10 +117,10 @@ public class UIInput : MonoBehaviour
 	public string savedAs;
 
 	/// <summary>
-	/// Object to select when Tab key gets pressed.
+	/// Don't use this anymore. Attach UIKeyNavigation instead.
 	/// </summary>
 
-	public GameObject selectOnTab;
+	[HideInInspector][SerializeField] GameObject selectOnTab;
 
 	/// <summary>
 	/// Color of the label when the input field has focus.
@@ -197,6 +197,7 @@ public class UIInput : MonoBehaviour
 	{
 		get
 		{
+			if (mDoInit) Init();
 			return mDefaultText;
 		}
 		set
@@ -424,6 +425,19 @@ public class UIInput : MonoBehaviour
 
 	void Start ()
 	{
+		if (selectOnTab != null)
+		{
+			UIKeyNavigation nav = GetComponent<UIKeyNavigation>();
+
+			if (nav == null)
+			{
+				nav = gameObject.AddComponent<UIKeyNavigation>();
+				nav.onDown = selectOnTab;
+			}
+			selectOnTab = null;
+			NGUITools.SetDirty(this);
+		}
+
 		if (mLoadSavedValue && !string.IsNullOrEmpty(savedAs)) LoadValue();
 		else value = mValue.Replace("\\n", "\n");
 	}
@@ -528,7 +542,7 @@ public class UIInput : MonoBehaviour
 	/// Update the text based on input.
 	/// </summary>
 	
-	void Update ()
+	protected virtual void Update ()
 	{
 #if UNITY_EDITOR
 		if (!Application.isPlaying) return;
@@ -616,7 +630,7 @@ public class UIInput : MonoBehaviour
 				}
 
 				UpdateLabel();
-				return;
+				if (string.IsNullOrEmpty(Input.inputString)) return;
 			}
 #if MOBILE
 			if (mKeyboard != null)
@@ -657,12 +671,6 @@ public class UIInput : MonoBehaviour
 			else
 #endif // MOBILE
 			{
-				if (selectOnTab != null && Input.GetKeyDown(KeyCode.Tab))
-				{
-					UICamera.selectedObject = selectOnTab;
-					return;
-				}
-
 				string ime = Input.compositionString;
 
 				// There seems to be an inconsistency between IME on Windows, and IME on OSX.
@@ -757,6 +765,9 @@ public class UIInput : MonoBehaviour
 		bool ctrl = isMac ?
 			((ev.modifiers & EventModifiers.Command) != 0) :
 			((ev.modifiers & EventModifiers.Control) != 0);
+
+		// http://www.tasharen.com/forum/index.php?topic=10780.0
+		if ((ev.modifiers & EventModifiers.Alt) != 0) ctrl = false;
 
 		bool shift = ((ev.modifiers & EventModifiers.Shift) != 0);
 
@@ -1079,7 +1090,7 @@ public class UIInput : MonoBehaviour
 		Ray ray = UICamera.currentRay;
 		Plane p = new Plane(corners[0], corners[1], corners[2]);
 		float dist;
-		return p.Raycast(ray, out dist) ? mDrawStart + label.GetCharacterIndexAtPosition(ray.GetPoint(dist)) : 0;
+		return p.Raycast(ray, out dist) ? mDrawStart + label.GetCharacterIndexAtPosition(ray.GetPoint(dist), false) : 0;
 	}
 
 	/// <summary>

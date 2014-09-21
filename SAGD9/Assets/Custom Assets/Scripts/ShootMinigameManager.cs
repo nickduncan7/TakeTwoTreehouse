@@ -53,6 +53,8 @@ public class ShootMinigameManager : MonoBehaviour
     private short gainedPlot = 0;
     private short gainedEffects = 0;
 
+    private Guid currentSceneGuid;
+
     public Sprite GetSpriteForKid(Kid kid)
     {
         switch (kid.Name)
@@ -114,11 +116,20 @@ public class ShootMinigameManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+
+
         benefitBuilder = new StringBuilder();
 	    Random.seed = (int) DateTime.Now.Ticks;
 
         Cast = new List<Kid>();
         var gameDataObject = GameDataObjectHelper.GetGameData();
+
+	    var scene = new Scene();
+        scene.ID = new Guid();
+	    currentSceneGuid = scene.ID;
+
+        gameDataObject.WeekScenes.Add(scene);
+
         gameDataObject.Cast.ForEach(cast =>
         {
             if (cast.Availability.Contains(gameDataObject.GetCurrentDay()))
@@ -487,6 +498,7 @@ public class ShootMinigameManager : MonoBehaviour
         if (!pointsAwarded)
         {
             var gdo = GameDataObjectHelper.GetGameData();
+
             success = false;
             UpdateInstructions("You picked the wrong one, dummy!");
 
