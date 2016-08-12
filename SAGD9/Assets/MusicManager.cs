@@ -18,18 +18,18 @@ public class MusicManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (!audio.isPlaying)
+	    if (!GetComponent<AudioSource>().isPlaying)
 	    {
 	        if (NextSong == Song1)
 	        {
-	            audio.clip = Song1;
-                audio.PlayDelayed(1);
+	            GetComponent<AudioSource>().clip = Song1;
+                GetComponent<AudioSource>().PlayDelayed(1);
 	            NextSong = Song2;
 	        }
 	        else
 	        {
-                audio.clip = Song2;
-                audio.PlayDelayed(1);
+                GetComponent<AudioSource>().clip = Song2;
+                GetComponent<AudioSource>().PlayDelayed(1);
                 NextSong = Song1;
 	        }
 	    }

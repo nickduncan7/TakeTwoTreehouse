@@ -9,10 +9,10 @@ public class WeekCounterScript : MonoBehaviour {
 	{
 	    gameDataObject = GameDataObjectHelper.GetGameData();
         if (gameDataObject.Week != 5)
-	        guiText.text = string.Format("Week {0}", gameDataObject.Week);
+	        GetComponent<GUIText>().text = string.Format("Week {0}", gameDataObject.Week);
         else
         {
-            guiText.text = "Last Week";
+            GetComponent<GUIText>().text = "Last Week";
         }
 	}
 	

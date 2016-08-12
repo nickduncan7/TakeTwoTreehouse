@@ -18,20 +18,20 @@ public class CharacterController2D : MonoBehaviour {
         var moveVertical = Input.GetAxis("Vertical");
 
 
-	    if (rigidbody2D.velocity != new Vector2(moveHorizontal*moveSpeed, moveVertical*moveSpeed))
+	    if (GetComponent<Rigidbody2D>().velocity != new Vector2(moveHorizontal*moveSpeed, moveVertical*moveSpeed))
 	    {
             animator.SetBool("Idle", false);
-	        rigidbody2D.velocity = Vector2.Lerp(rigidbody2D.velocity,
+	        GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(GetComponent<Rigidbody2D>().velocity,
 	            new Vector2(moveHorizontal*moveSpeed, moveVertical*moveSpeed), 1);
             Background.position = new Vector3(transform.position.x / 3f, transform.position.y / 3f, 40f);
 	    }
 
-        if (rigidbody2D.velocity == new Vector2(0f, 0f))
+        if (GetComponent<Rigidbody2D>().velocity == new Vector2(0f, 0f))
             animator.SetBool("Idle", true);
 
-        if (rigidbody2D.velocity.x < 0)
+        if (GetComponent<Rigidbody2D>().velocity.x < 0)
             animator.SetBool("FacingLeft", true);
-        else if (rigidbody2D.velocity.x > 0)
+        else if (GetComponent<Rigidbody2D>().velocity.x > 0)
             animator.SetBool("FacingLeft", false);
 
 	}

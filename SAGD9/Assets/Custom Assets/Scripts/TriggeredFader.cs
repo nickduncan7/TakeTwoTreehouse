@@ -27,13 +27,13 @@ public class TriggeredFader : MonoBehaviour
     {
   
         // Lerp the colour of the texture between itself and transparent.
-        guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
+        GetComponent<GUITexture>().color = Color.Lerp(GetComponent<GUITexture>().color, Color.clear, fadeSpeed * Time.deltaTime);
     }
 
     private void FadeBlack()
     {
         // Lerp the colour of the texture between itself and black.
-        guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
+        GetComponent<GUITexture>().color = Color.Lerp(GetComponent<GUITexture>().color, Color.black, fadeSpeed * Time.deltaTime);
     }
 
     public void FadeToClear()
@@ -51,11 +51,11 @@ public class TriggeredFader : MonoBehaviour
 
     public bool ClearTransitionComplete()
     {
-        return guiTexture.color.a <= 0.09;
+        return GetComponent<GUITexture>().color.a <= 0.09;
     }
 
     public bool BlackTransitionComplete()
     {
-        return guiTexture.color.a >= 0.91;
+        return GetComponent<GUITexture>().color.a >= 0.91;
     }
 }

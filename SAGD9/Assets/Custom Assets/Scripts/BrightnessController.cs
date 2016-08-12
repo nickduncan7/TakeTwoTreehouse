@@ -20,7 +20,7 @@ public class BrightnessController : MonoBehaviour {
     void Awake ()
     {
         // When the level starts we want the light to be "off".
-        light.intensity = 0f;
+        GetComponent<Light>().intensity = 0f;
     }
     
     
@@ -36,17 +36,17 @@ public class BrightnessController : MonoBehaviour {
                     if (!windingDown)
                     {
                         // ... Lerp the light's intensity towards the current target.
-                        light.intensity = Mathf.Lerp(light.intensity, highIntensity, fadeSpeed*Time.deltaTime);
+                        GetComponent<Light>().intensity = Mathf.Lerp(GetComponent<Light>().intensity, highIntensity, fadeSpeed*Time.deltaTime);
 
-                        if (Mathf.Abs(light.intensity) >= (highIntensity - changeMargin))
+                        if (Mathf.Abs(GetComponent<Light>().intensity) >= (highIntensity - changeMargin))
                         {
                             windingDown = true;
                         }
                     }
                     else
                     {
-                        light.intensity = Mathf.Lerp(light.intensity, lowIntensity, fadeSpeed*1.8f*Time.deltaTime);
-                        if (light.intensity <= 0.008f)
+                        GetComponent<Light>().intensity = Mathf.Lerp(GetComponent<Light>().intensity, lowIntensity, fadeSpeed*1.8f*Time.deltaTime);
+                        if (GetComponent<Light>().intensity <= 0.008f)
                         {
                             windingDown = false;
                             count++;
@@ -64,17 +64,17 @@ public class BrightnessController : MonoBehaviour {
                     if (!windingDown)
                     {
                         // ... Lerp the light's intensity towards the current target.
-                        light.intensity = Mathf.Lerp(light.intensity, highIntensity, fadeSpeed*Time.deltaTime);
+                        GetComponent<Light>().intensity = Mathf.Lerp(GetComponent<Light>().intensity, highIntensity, fadeSpeed*Time.deltaTime);
 
-                        if (Mathf.Abs(light.intensity) >= (highIntensity - changeMargin))
+                        if (Mathf.Abs(GetComponent<Light>().intensity) >= (highIntensity - changeMargin))
                         {
                             windingDown = true;
                         }
                     }
                     else
                     {
-                        light.intensity = Mathf.Lerp(light.intensity, lowIntensity, fadeSpeed*1.8f*Time.deltaTime);
-                        if (light.intensity <= 0.008f)
+                        GetComponent<Light>().intensity = Mathf.Lerp(GetComponent<Light>().intensity, lowIntensity, fadeSpeed*1.8f*Time.deltaTime);
+                        if (GetComponent<Light>().intensity <= 0.008f)
                         {
                             windingDown = false;
                             count++;

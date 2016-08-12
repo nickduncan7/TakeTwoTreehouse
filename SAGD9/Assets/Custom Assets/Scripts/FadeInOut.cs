@@ -48,14 +48,14 @@ public class FadeInOut : MonoBehaviour {
     void FadeToClear()
     {
         // Lerp the colour of the texture between itself and transparent.
-        guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
+        GetComponent<GUITexture>().color = Color.Lerp(GetComponent<GUITexture>().color, Color.clear, fadeSpeed * Time.deltaTime);
     }
 
 
     void FadeToBlack()
     {
         // Lerp the colour of the texture between itself and black.
-        guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
+        GetComponent<GUITexture>().color = Color.Lerp(GetComponent<GUITexture>().color, Color.black, fadeSpeed * Time.deltaTime);
 
     }
 }

@@ -16,8 +16,8 @@ public class FollowPlayerScript : MonoBehaviour {
     {
         if (target)
         {
-            var point = camera.WorldToViewportPoint(target.position);
-            var delta = target.position - camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
+            var point = GetComponent<Camera>().WorldToViewportPoint(target.position);
+            var delta = target.position - GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
             var destination = transform.position + delta;
 
             transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);

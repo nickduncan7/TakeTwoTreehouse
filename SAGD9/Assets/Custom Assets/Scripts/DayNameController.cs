@@ -11,43 +11,43 @@ public class DayNameController : MonoBehaviour
 	{
 	    var UILabel = this.GetComponent<UILabel>();
 	    var gameScript = GameDataObjectHelper.GetGameData();
-	    if (guiText)
+	    if (GetComponent<GUIText>())
             switch (gameScript.GetCurrentDay())
             {
                 case Days.Sunday:
-                    guiText.text = RedFlasher ? "•SUNDAY" : "SUNDAY";
+                    GetComponent<GUIText>().text = RedFlasher ? "•SUNDAY" : "SUNDAY";
                     if (Short)
-                        guiText.text = "SUN";
+                        GetComponent<GUIText>().text = "SUN";
                     break;
                 case Days.Monday:
-                    guiText.text = RedFlasher ? "•MONDAY" : "MONDAY";
+                    GetComponent<GUIText>().text = RedFlasher ? "•MONDAY" : "MONDAY";
                     if (Short)
-                        guiText.text = "MON";
+                        GetComponent<GUIText>().text = "MON";
                     break;
                 case Days.Tuesday:
-                    guiText.text = RedFlasher ? "•TUESDAY" : "TUESDAY";
+                    GetComponent<GUIText>().text = RedFlasher ? "•TUESDAY" : "TUESDAY";
                     if (Short)
-                        guiText.text = "TUE";
+                        GetComponent<GUIText>().text = "TUE";
                     break;
                 case Days.Wednesday:
-                    guiText.text = RedFlasher ? "•WEDNESDAY" : "WEDNESDAY";
+                    GetComponent<GUIText>().text = RedFlasher ? "•WEDNESDAY" : "WEDNESDAY";
                     if (Short)
-                        guiText.text = "WED";
+                        GetComponent<GUIText>().text = "WED";
                     break;
                 case Days.Thursday:
-                    guiText.text = RedFlasher ? "•THURSDAY" : "THURSDAY";
+                    GetComponent<GUIText>().text = RedFlasher ? "•THURSDAY" : "THURSDAY";
                     if (Short)
-                        guiText.text = "THU";
+                        GetComponent<GUIText>().text = "THU";
                     break;
                 case Days.Friday:
-                    guiText.text = RedFlasher ? "•FRIDAY" : "FRIDAY";
+                    GetComponent<GUIText>().text = RedFlasher ? "•FRIDAY" : "FRIDAY";
                     if (Short)
-                        guiText.text = "FRI";
+                        GetComponent<GUIText>().text = "FRI";
                     break;
                 case Days.Saturday:
-                    guiText.text = RedFlasher ? "•SATURDAY" : "SATURDAY";
+                    GetComponent<GUIText>().text = RedFlasher ? "•SATURDAY" : "SATURDAY";
                     if (Short)
-                        guiText.text = "SAT";
+                        GetComponent<GUIText>().text = "SAT";
                     break;
 
             }

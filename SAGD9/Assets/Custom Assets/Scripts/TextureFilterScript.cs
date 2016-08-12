@@ -5,7 +5,7 @@ public class TextureFilterScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        renderer.material.mainTexture.filterMode = FilterMode.Point;
+        GetComponent<Renderer>().material.mainTexture.filterMode = FilterMode.Point;
 	}
 	
 	// Update is called once per frame
